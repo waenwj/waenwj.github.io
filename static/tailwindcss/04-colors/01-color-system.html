@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>颜色系统 - 颜色命名规范和工具类</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 页面标题 -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <h1 class="text-3xl font-bold text-gray-900">Tailwind CSS 学习</h1>
+                <div class="flex items-center space-x-4">
+                    <p class="text-gray-600">第4课：颜色系统</p>
+                    <a href="../index.html" class="text-blue-600 hover:text-blue-700 transition-colors">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 颜色系统介绍 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">颜色系统 (Color System)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">什么是颜色系统？</h3>
+                <p class="text-gray-700 mb-4">
+                    Tailwind CSS 提供了丰富的颜色系统，每种颜色都有 10 个不同的深浅度，从 50（最浅）到 900（最深）。
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">颜色命名规范：</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>颜色名称</span>
+                                <span class="text-gray-600">例如：blue, red, green</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>深浅度</span>
+                                <span class="text-gray-600">50, 100, 200, ..., 900</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>完整类名</span>
+                                <span class="text-gray-600">bg-blue-500, text-red-600</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">颜色示例：</h4>
+                        <div class="grid grid-cols-5 gap-2">
+                            <div class="bg-blue-50 h-8 rounded"></div>
+                            <div class="bg-blue-100 h-8 rounded"></div>
+                            <div class="bg-blue-200 h-8 rounded"></div>
+                            <div class="bg-blue-300 h-8 rounded"></div>
+                            <div class="bg-blue-400 h-8 rounded"></div>
+                            <div class="bg-blue-500 h-8 rounded"></div>
+                            <div class="bg-blue-600 h-8 rounded"></div>
+                            <div class="bg-blue-700 h-8 rounded"></div>
+                            <div class="bg-blue-800 h-8 rounded"></div>
+                            <div class="bg-blue-900 h-8 rounded"></div>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2">blue-50 到 blue-900</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 背景色 (Background Colors) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">背景色 (Background Colors)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 基础颜色 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">基础颜色</h3>
+                    <div class="space-y-3">
+                        <div class="bg-red-500 text-white p-3 rounded">bg-red-500</div>
+                        <div class="bg-green-500 text-white p-3 rounded">bg-green-500</div>
+                        <div class="bg-blue-500 text-white p-3 rounded">bg-blue-500</div>
+                        <div class="bg-yellow-500 text-white p-3 rounded">bg-yellow-500</div>
+                        <div class="bg-purple-500 text-white p-3 rounded">bg-purple-500</div>
+                        <div class="bg-pink-500 text-white p-3 rounded">bg-pink-500</div>
+                        <div class="bg-indigo-500 text-white p-3 rounded">bg-indigo-500</div>
+                        <div class="bg-gray-500 text-white p-3 rounded">bg-gray-500</div>
+                    </div>
+                </div>
+
+                <!-- 深浅度变化 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">深浅度变化</h3>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 text-blue-900 p-3 rounded border">bg-blue-50 (最浅)</div>
+                        <div class="bg-blue-100 text-blue-900 p-3 rounded border">bg-blue-100</div>
+                        <div class="bg-blue-200 text-blue-900 p-3 rounded border">bg-blue-200</div>
+                        <div class="bg-blue-300 text-blue-900 p-3 rounded border">bg-blue-300</div>
+                        <div class="bg-blue-400 text-white p-3 rounded border">bg-blue-400</div>
+                        <div class="bg-blue-500 text-white p-3 rounded border">bg-blue-500 (标准)</div>
+                        <div class="bg-blue-600 text-white p-3 rounded border">bg-blue-600</div>
+                        <div class="bg-blue-700 text-white p-3 rounded border">bg-blue-700</div>
+                        <div class="bg-blue-800 text-white p-3 rounded border">bg-blue-800</div>
+                        <div class="bg-blue-900 text-white p-3 rounded border">bg-blue-900 (最深)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文字颜色 (Text Colors) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">文字颜色 (Text Colors)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 基础文字颜色 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">基础文字颜色</h3>
+                    <div class="space-y-3">
+                        <p class="text-red-500 text-lg font-medium">text-red-500 - 红色文字</p>
+                        <p class="text-green-500 text-lg font-medium">text-green-500 - 绿色文字</p>
+                        <p class="text-blue-500 text-lg font-medium">text-blue-500 - 蓝色文字</p>
+                        <p class="text-yellow-500 text-lg font-medium">text-yellow-500 - 黄色文字</p>
+                        <p class="text-purple-500 text-lg font-medium">text-purple-500 - 紫色文字</p>
+                        <p class="text-pink-500 text-lg font-medium">text-pink-500 - 粉色文字</p>
+                        <p class="text-indigo-500 text-lg font-medium">text-indigo-500 - 靛蓝色文字</p>
+                        <p class="text-gray-500 text-lg font-medium">text-gray-500 - 灰色文字</p>
+                    </div>
+                </div>
+
+                <!-- 文字颜色深浅度 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">文字颜色深浅度</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-50 bg-gray-900 p-2 rounded">text-gray-50 (最浅)</p>
+                        <p class="text-gray-100 bg-gray-800 p-2 rounded">text-gray-100</p>
+                        <p class="text-gray-200 bg-gray-700 p-2 rounded">text-gray-200</p>
+                        <p class="text-gray-300 bg-gray-600 p-2 rounded">text-gray-300</p>
+                        <p class="text-gray-400 bg-gray-500 p-2 rounded">text-gray-400</p>
+                        <p class="text-gray-500 bg-gray-400 p-2 rounded">text-gray-500</p>
+                        <p class="text-gray-600 bg-gray-300 p-2 rounded">text-gray-600</p>
+                        <p class="text-gray-700 bg-gray-200 p-2 rounded">text-gray-700</p>
+                        <p class="text-gray-800 bg-gray-100 p-2 rounded">text-gray-800</p>
+                        <p class="text-gray-900 bg-gray-50 p-2 rounded">text-gray-900 (最深)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 边框颜色 (Border Colors) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">边框颜色 (Border Colors)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 边框颜色示例 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">边框颜色示例</h3>
+                    <div class="space-y-3">
+                        <div class="border-2 border-red-500 p-3 rounded">border-red-500</div>
+                        <div class="border-2 border-green-500 p-3 rounded">border-green-500</div>
+                        <div class="border-2 border-blue-500 p-3 rounded">border-blue-500</div>
+                        <div class="border-2 border-yellow-500 p-3 rounded">border-yellow-500</div>
+                        <div class="border-2 border-purple-500 p-3 rounded">border-purple-500</div>
+                        <div class="border-2 border-pink-500 p-3 rounded">border-pink-500</div>
+                        <div class="border-2 border-indigo-500 p-3 rounded">border-indigo-500</div>
+                        <div class="border-2 border-gray-500 p-3 rounded">border-gray-500</div>
+                    </div>
+                </div>
+
+                <!-- 边框颜色深浅度 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">边框颜色深浅度</h3>
+                    <div class="space-y-3">
+                        <div class="border-2 border-blue-50 p-3 rounded bg-blue-50">border-blue-50</div>
+                        <div class="border-2 border-blue-100 p-3 rounded bg-blue-50">border-blue-100</div>
+                        <div class="border-2 border-blue-200 p-3 rounded bg-blue-50">border-blue-200</div>
+                        <div class="border-2 border-blue-300 p-3 rounded bg-blue-50">border-blue-300</div>
+                        <div class="border-2 border-blue-400 p-3 rounded bg-blue-50">border-blue-400</div>
+                        <div class="border-2 border-blue-500 p-3 rounded bg-blue-50">border-blue-500</div>
+                        <div class="border-2 border-blue-600 p-3 rounded bg-blue-50">border-blue-600</div>
+                        <div class="border-2 border-blue-700 p-3 rounded bg-blue-50">border-blue-700</div>
+                        <div class="border-2 border-blue-800 p-3 rounded bg-blue-50">border-blue-800</div>
+                        <div class="border-2 border-blue-900 p-3 rounded bg-blue-50">border-blue-900</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特殊颜色值 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">特殊颜色值</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 透明色 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">透明色 (Transparent)</h3>
+                    <div class="space-y-3">
+                        <div class="bg-transparent border-2 border-gray-300 p-3 rounded">bg-transparent</div>
+                        <div class="bg-blue-500 p-3 rounded">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-blue-500 font-bold text-lg">
+                                text-transparent (透明文字)
+                            </span>
+                        </div>
+                        <div class="border-2 border-transparent p-3 rounded bg-gray-100">border-transparent</div>
+                    </div>
+                </div>
+
+                <!-- 当前颜色 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">当前颜色 (Current)</h3>
+                    <div class="space-y-3">
+                        <div class="bg-blue-500 text-white p-3 rounded">
+                            <span class="border-2 border-current px-2 py-1">border-current (继承当前文字颜色)</span>
+                        </div>
+                        <div class="bg-green-500 text-white p-3 rounded">
+                            <span class="border-2 border-current px-2 py-1">border-current (继承当前文字颜色)</span>
+                        </div>
+                        <div class="bg-red-500 text-white p-3 rounded">
+                            <span class="border-2 border-current px-2 py-1">border-current (继承当前文字颜色)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 颜色透明度 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">颜色透明度 (Opacity)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">透明度修饰符</h3>
+                <p class="text-gray-700 mb-4">
+                    使用斜杠语法来设置颜色的透明度，例如：bg-blue-500/50 表示 50% 透明度的蓝色背景。
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- 背景透明度 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">背景透明度</h4>
+                        <div class="space-y-2">
+                            <div class="bg-blue-500/10 p-3 rounded border">bg-blue-500/10 (10%)</div>
+                            <div class="bg-blue-500/25 p-3 rounded border">bg-blue-500/25 (25%)</div>
+                            <div class="bg-blue-500/50 p-3 rounded border">bg-blue-500/50 (50%)</div>
+                            <div class="bg-blue-500/75 p-3 rounded border">bg-blue-500/75 (75%)</div>
+                            <div class="bg-blue-500/90 p-3 rounded border">bg-blue-500/90 (90%)</div>
+                        </div>
+                    </div>
+
+                    <!-- 文字透明度 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">文字透明度</h4>
+                        <div class="space-y-2">
+                            <p class="text-blue-500/10 text-lg font-medium">text-blue-500/10 (10%)</p>
+                            <p class="text-blue-500/25 text-lg font-medium">text-blue-500/25 (25%)</p>
+                            <p class="text-blue-500/50 text-lg font-medium">text-blue-500/50 (50%)</p>
+                            <p class="text-blue-500/75 text-lg font-medium">text-blue-500/75 (75%)</p>
+                            <p class="text-blue-500/90 text-lg font-medium">text-blue-500/90 (90%)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实际应用示例 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">实际应用示例</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 状态指示器 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">状态指示器</h3>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-green-700 font-medium">在线</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <span class="text-yellow-700 font-medium">忙碌</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <span class="text-red-700 font-medium">离线</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-gray-500 rounded-full"></div>
+                            <span class="text-gray-700 font-medium">未知</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 p-3 bg-gray-100 rounded text-sm">
+                        <p class="font-medium mb-2">使用的颜色类：</p>
+                        <ul class="text-xs space-y-1">
+                            <li>• bg-green-500 - 绿色圆点</li>
+                            <li>• text-green-700 - 绿色文字</li>
+                            <li>• bg-yellow-500 - 黄色圆点</li>
+                            <li>• text-yellow-700 - 黄色文字</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 按钮样式 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">按钮样式</h3>
+                    
+                    <div class="space-y-3">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                            主要按钮
+                        </button>
+                        <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors">
+                            成功按钮
+                        </button>
+                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors">
+                            危险按钮
+                        </button>
+                        <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded transition-colors">
+                            次要按钮
+                        </button>
+                        <button class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded transition-colors">
+                            轮廓按钮
+                        </button>
+                    </div>
+                    
+                    <div class="mt-4 p-3 bg-gray-100 rounded text-sm">
+                        <p class="font-medium mb-2">使用的颜色类：</p>
+                        <ul class="text-xs space-y-1">
+                            <li>• bg-blue-500 hover:bg-blue-600 - 蓝色背景</li>
+                            <li>• text-white - 白色文字</li>
+                            <li>• border-blue-500 - 蓝色边框</li>
+                            <li>• text-blue-500 - 蓝色文字</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 练习区域 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">练习区域</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">尝试使用不同的颜色</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 练习1：创建彩色卡片 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">练习1：创建彩色卡片</h4>
+                        <div class="space-y-3">
+                            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-lg">
+                                <h5 class="font-bold mb-2">渐变卡片</h5>
+                                <p class="text-sm opacity-90">使用渐变背景色</p>
+                            </div>
+                            <div class="bg-green-100 border-l-4 border-green-500 p-4 rounded">
+                                <h5 class="font-bold text-green-800 mb-2">成功卡片</h5>
+                                <p class="text-green-700 text-sm">使用绿色主题</p>
+                            </div>
+                            <div class="bg-red-100 border-l-4 border-red-500 p-4 rounded">
+                                <h5 class="font-bold text-red-800 mb-2">警告卡片</h5>
+                                <p class="text-red-700 text-sm">使用红色主题</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 练习2：颜色组合 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">练习2：颜色组合</h4>
+                        <div class="space-y-3">
+                            <div class="bg-indigo-500 text-white p-3 rounded-lg shadow-lg">
+                                <span class="text-indigo-100">浅色文字</span> + <span class="text-white font-bold">白色粗体</span>
+                            </div>
+                            <div class="bg-yellow-400 text-yellow-900 p-3 rounded-lg border-2 border-yellow-600">
+                                <span class="font-bold">黄色主题</span> + <span class="text-yellow-800">深色文字</span>
+                            </div>
+                            <div class="bg-gray-800 text-gray-100 p-3 rounded-lg">
+                                <span class="text-gray-300">灰色主题</span> + <span class="text-white font-semibold">白色文字</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                    <h4 class="font-medium text-gray-900 mb-2">练习提示：</h4>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>• 尝试使用不同的颜色组合：bg-{color}-{shade}</li>
+                        <li>• 尝试使用透明度：bg-blue-500/50</li>
+                        <li>• 尝试使用渐变：bg-gradient-to-r from-blue-500 to-purple-600</li>
+                        <li>• 尝试使用边框颜色：border-{color}-{shade}</li>
+                        <li>• 尝试使用文字颜色：text-{color}-{shade}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下一步 -->
+        <section class="text-center">
+            <div class="bg-gradient-to-r from-orange-500 to-red-600 text-white p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">恭喜！你完成了第四课</h2>
+                <p class="text-lg mb-6">你已经掌握了 Tailwind CSS 的颜色系统</p>
+                <a href="../05-typography/01-text-styles.html" class="inline-block bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    继续下一课：排版系统 →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">Tailwind CSS 学习教程 - 从入门到精通</p>
+        </div>
+    </footer>
+</body>
+</html>

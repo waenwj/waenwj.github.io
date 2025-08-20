@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>间距系统 - 内边距和外边距</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 页面标题 -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <h1 class="text-3xl font-bold text-gray-900">Tailwind CSS 学习</h1>
+                <div class="flex items-center space-x-4">
+                    <p class="text-gray-600">第3课：间距系统</p>
+                    <a href="../index.html" class="text-blue-600 hover:text-blue-700 transition-colors">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 间距系统介绍 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">间距系统 (Spacing System)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">什么是间距系统？</h3>
+                <p class="text-gray-700 mb-4">
+                    Tailwind CSS 使用统一的间距比例系统，基于 0.25rem (4px) 的倍数。这使得设计更加一致和可预测。
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">间距比例：</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>0</span>
+                                <span class="text-gray-600">0px</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>1</span>
+                                <span class="text-gray-600">0.25rem (4px)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>2</span>
+                                <span class="text-gray-600">0.5rem (8px)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>4</span>
+                                <span class="text-gray-600">1rem (16px)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>8</span>
+                                <span class="text-gray-600">2rem (32px)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>16</span>
+                                <span class="text-gray-600">4rem (64px)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">使用示例：</h4>
+                        <div class="space-y-2">
+                            <div class="bg-blue-100 p-2 rounded text-sm">p-2 (padding: 0.5rem)</div>
+                            <div class="bg-green-100 p-4 rounded text-sm">p-4 (padding: 1rem)</div>
+                            <div class="bg-purple-100 p-8 rounded text-sm">p-8 (padding: 2rem)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 内边距 (Padding) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">内边距 (Padding)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 所有方向的内边距 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">所有方向 (p-*)</h3>
+                    <div class="space-y-3">
+                        <div class="bg-red-100 p-1 rounded border border-red-300">
+                            <p class="text-xs">p-1 (0.25rem)</p>
+                        </div>
+                        <div class="bg-red-100 p-2 rounded border border-red-300">
+                            <p class="text-sm">p-2 (0.5rem)</p>
+                        </div>
+                        <div class="bg-red-100 p-4 rounded border border-red-300">
+                            <p class="text-base">p-4 (1rem)</p>
+                        </div>
+                        <div class="bg-red-100 p-8 rounded border border-red-300">
+                            <p class="text-lg">p-8 (2rem)</p>
+                        </div>
+                        <div class="bg-red-100 p-16 rounded border border-red-300">
+                            <p class="text-xl">p-16 (4rem)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 单方向内边距 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">单方向内边距</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium mb-2">pt-4 (上内边距)</p>
+                            <div class="bg-blue-100 pt-4 rounded border border-blue-300">
+                                <p class="text-sm">顶部有 1rem 的内边距</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">pr-4 (右内边距)</p>
+                            <div class="bg-green-100 pr-4 rounded border border-green-300">
+                                <p class="text-sm">右侧有 1rem 的内边距</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">pb-4 (下内边距)</p>
+                            <div class="bg-purple-100 pb-4 rounded border border-purple-300">
+                                <p class="text-sm">底部有 1rem 的内边距</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">pl-4 (左内边距)</p>
+                            <div class="bg-orange-100 pl-4 rounded border border-orange-300">
+                                <p class="text-sm">左侧有 1rem 的内边距</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 水平和垂直内边距 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">水平和垂直内边距</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium mb-2">px-4 (水平内边距)</p>
+                            <div class="bg-indigo-100 px-4 rounded border border-indigo-300">
+                                <p class="text-sm">左右各有 1rem 的内边距</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">py-4 (垂直内边距)</p>
+                            <div class="bg-pink-100 py-4 rounded border border-pink-300">
+                                <p class="text-sm">上下各有 1rem 的内边距</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">px-4 py-2 (组合使用)</p>
+                            <div class="bg-teal-100 px-4 py-2 rounded border border-teal-300">
+                                <p class="text-sm">水平 1rem，垂直 0.5rem</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 特殊值 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">特殊值</h3>
+                    <div class="space-y-3">
+                        <div class="bg-gray-100 p-0 rounded border border-gray-300">
+                            <p class="text-sm">p-0 (无内边距)</p>
+                        </div>
+                        <div class="bg-gray-100 p-px rounded border border-gray-300">
+                            <p class="text-sm">p-px (1px 内边距)</p>
+                        </div>
+                        <div class="bg-gray-100 p-0.5 rounded border border-gray-300">
+                            <p class="text-sm">p-0.5 (0.125rem)</p>
+                        </div>
+                        <div class="bg-gray-100 p-1.5 rounded border border-gray-300">
+                            <p class="text-sm">p-1.5 (0.375rem)</p>
+                        </div>
+                        <div class="bg-gray-100 p-3 rounded border border-gray-300">
+                            <p class="text-sm">p-3 (0.75rem)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 外边距 (Margin) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">外边距 (Margin)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 外边距基础 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">外边距基础</h3>
+                    <div class="space-y-3">
+                        <div class="bg-yellow-100 p-2 rounded">
+                            <div class="bg-yellow-200 m-1 p-2 rounded text-sm">m-1 (0.25rem)</div>
+                        </div>
+                        <div class="bg-yellow-100 p-2 rounded">
+                            <div class="bg-yellow-200 m-2 p-2 rounded text-sm">m-2 (0.5rem)</div>
+                        </div>
+                        <div class="bg-yellow-100 p-2 rounded">
+                            <div class="bg-yellow-200 m-4 p-2 rounded text-sm">m-4 (1rem)</div>
+                        </div>
+                        <div class="bg-yellow-100 p-2 rounded">
+                            <div class="bg-yellow-200 m-8 p-2 rounded text-sm">m-8 (2rem)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 外边距方向 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">外边距方向</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium mb-2">mt-4 (上外边距)</p>
+                            <div class="bg-blue-100 p-2 rounded">
+                                <div class="bg-blue-200 mt-4 p-2 rounded text-sm">顶部外边距</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">mx-auto (水平居中)</p>
+                            <div class="bg-green-100 p-2 rounded">
+                                <div class="bg-green-200 mx-auto p-2 rounded text-sm w-32 text-center">水平居中</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">mb-4 (下外边距)</p>
+                            <div class="bg-purple-100 p-2 rounded">
+                                <div class="bg-purple-200 mb-4 p-2 rounded text-sm">底部外边距</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 负外边距 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">负外边距</h3>
+                    <div class="space-y-3">
+                        <div class="bg-red-100 p-4 rounded">
+                            <div class="bg-red-200 p-2 rounded text-sm">容器</div>
+                            <div class="bg-red-300 -mt-2 p-2 rounded text-sm">-mt-2 (负上外边距)</div>
+                        </div>
+                        
+                        <div class="bg-blue-100 p-4 rounded">
+                            <div class="bg-blue-200 p-2 rounded text-sm">容器</div>
+                            <div class="bg-blue-300 -mb-2 p-2 rounded text-sm">-mb-2 (负下外边距)</div>
+                        </div>
+                        
+                        <div class="bg-green-100 p-4 rounded">
+                            <div class="bg-green-200 p-2 rounded text-sm">容器</div>
+                            <div class="bg-green-300 -mx-2 p-2 rounded text-sm">-mx-2 (负水平外边距)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 外边距的特殊值 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">特殊值</h3>
+                    <div class="space-y-3">
+                        <div class="bg-gray-100 p-2 rounded">
+                            <div class="bg-gray-200 m-0 p-2 rounded text-sm">m-0 (无外边距)</div>
+                        </div>
+                        <div class="bg-gray-100 p-2 rounded">
+                            <div class="bg-gray-200 m-auto p-2 rounded text-sm w-24 text-center">m-auto (自动外边距)</div>
+                        </div>
+                        <div class="bg-gray-100 p-2 rounded">
+                            <div class="bg-gray-200 m-px p-2 rounded text-sm">m-px (1px 外边距)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 间距工具类 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">间距工具类</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">space-x 和 space-y</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- space-x -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">space-x (水平间距)</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-medium mb-2">space-x-2</p>
+                                <div class="flex space-x-2">
+                                    <div class="bg-blue-500 text-white p-2 rounded text-sm">项目 1</div>
+                                    <div class="bg-blue-500 text-white p-2 rounded text-sm">项目 2</div>
+                                    <div class="bg-blue-500 text-white p-2 rounded text-sm">项目 3</div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <p class="text-sm font-medium mb-2">space-x-4</p>
+                                <div class="flex space-x-4">
+                                    <div class="bg-green-500 text-white p-2 rounded text-sm">项目 1</div>
+                                    <div class="bg-green-500 text-white p-2 rounded text-sm">项目 2</div>
+                                    <div class="bg-green-500 text-white p-2 rounded text-sm">项目 3</div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <p class="text-sm font-medium mb-2">space-x-8</p>
+                                <div class="flex space-x-8">
+                                    <div class="bg-purple-500 text-white p-2 rounded text-sm">项目 1</div>
+                                    <div class="bg-purple-500 text-white p-2 rounded text-sm">项目 2</div>
+                                    <div class="bg-purple-500 text-white p-2 rounded text-sm">项目 3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- space-y -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">space-y (垂直间距)</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm font-medium mb-2">space-y-2</p>
+                                <div class="space-y-2">
+                                    <div class="bg-orange-500 text-white p-2 rounded text-sm">项目 1</div>
+                                    <div class="bg-orange-500 text-white p-2 rounded text-sm">项目 2</div>
+                                    <div class="bg-orange-500 text-white p-2 rounded text-sm">项目 3</div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <p class="text-sm font-medium mb-2">space-y-4</p>
+                                <div class="space-y-4">
+                                    <div class="bg-red-500 text-white p-2 rounded text-sm">项目 1</div>
+                                    <div class="bg-red-500 text-white p-2 rounded text-sm">项目 2</div>
+                                    <div class="bg-red-500 text-white p-2 rounded text-sm">项目 3</div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <p class="text-sm font-medium mb-2">space-y-8</p>
+                                <div class="space-y-8">
+                                    <div class="bg-indigo-500 text-white p-2 rounded text-sm">项目 1</div>
+                                    <div class="bg-indigo-500 text-white p-2 rounded text-sm">项目 2</div>
+                                    <div class="bg-indigo-500 text-white p-2 rounded text-sm">项目 3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实际应用示例 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">实际应用示例</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 卡片组件 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">卡片组件</h3>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full"></div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">用户名称</h4>
+                                <p class="text-sm text-gray-600">用户描述</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">这是卡片的内容区域，使用了合适的内边距来创建视觉层次。</p>
+                        <div class="flex space-x-2">
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded text-sm">按钮 1</button>
+                            <button class="bg-gray-500 text-white px-4 py-2 rounded text-sm">按钮 2</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 p-3 bg-gray-100 rounded text-sm">
+                        <p class="font-medium mb-2">使用的间距类：</p>
+                        <ul class="text-xs space-y-1">
+                            <li>• p-6 - 卡片内边距</li>
+                            <li>• space-x-4 - 头像和文字间距</li>
+                            <li>• mb-4 - 标题下边距</li>
+                            <li>• space-x-2 - 按钮间距</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 表单布局 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">表单布局</h3>
+                    
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">用户名</label>
+                            <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">邮箱</label>
+                            <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">密码</label>
+                            <input type="password" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="flex space-x-3">
+                            <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600">提交</button>
+                            <button type="button" class="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600">取消</button>
+                        </div>
+                    </form>
+                    
+                    <div class="mt-4 p-3 bg-gray-100 rounded text-sm">
+                        <p class="font-medium mb-2">使用的间距类：</p>
+                        <ul class="text-xs space-y-1">
+                            <li>• space-y-4 - 表单项间距</li>
+                            <li>• mb-2 - 标签下边距</li>
+                            <li>• px-3 py-2 - 输入框内边距</li>
+                            <li>• space-x-3 - 按钮间距</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 练习区域 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">练习区域</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">尝试调整间距</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 练习1：调整卡片间距 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">练习1：调整卡片间距</h4>
+                        <div class="space-y-4">
+                            <div class="bg-blue-100 p-4 rounded">
+                                <h5 class="font-medium mb-2">卡片标题</h5>
+                                <p class="text-sm text-gray-600">卡片内容描述</p>
+                            </div>
+                            <div class="bg-green-100 p-4 rounded">
+                                <h5 class="font-medium mb-2">卡片标题</h5>
+                                <p class="text-sm text-gray-600">卡片内容描述</p>
+                            </div>
+                            <div class="bg-purple-100 p-4 rounded">
+                                <h5 class="font-medium mb-2">卡片标题</h5>
+                                <p class="text-sm text-gray-600">卡片内容描述</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 练习2：调整按钮组 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">练习2：调整按钮组</h4>
+                        <div class="flex space-x-2">
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded">按钮 1</button>
+                            <button class="bg-green-500 text-white px-4 py-2 rounded">按钮 2</button>
+                            <button class="bg-purple-500 text-white px-4 py-2 rounded">按钮 3</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                    <h4 class="font-medium text-gray-900 mb-2">练习提示：</h4>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>• 尝试改变 <code class="bg-gray-100 px-1 rounded">space-y-4</code> 为 <code class="bg-gray-100 px-1 rounded">space-y-2</code> 或 <code class="bg-gray-100 px-1 rounded">space-y-8</code></li>
+                        <li>• 尝试改变 <code class="bg-gray-100 px-1 rounded">space-x-2</code> 为 <code class="bg-gray-100 px-1 rounded">space-x-4</code> 或 <code class="bg-gray-100 px-1 rounded">space-x-8</code></li>
+                        <li>• 尝试改变 <code class="bg-gray-100 px-1 rounded">p-4</code> 为 <code class="bg-gray-100 px-1 rounded">p-2</code> 或 <code class="bg-gray-100 px-1 rounded">p-8</code></li>
+                        <li>• 尝试改变 <code class="bg-gray-100 px-1 rounded">px-4 py-2</code> 为 <code class="bg-gray-100 px-1 rounded">px-6 py-3</code></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下一步 -->
+        <section class="text-center">
+            <div class="bg-gradient-to-r from-purple-500 to-pink-600 text-white p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">恭喜！你完成了第三课</h2>
+                <p class="text-lg mb-6">你已经掌握了 Tailwind CSS 的间距系统</p>
+                <a href="../04-colors/01-color-system.html" class="inline-block bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    继续下一课：颜色系统 →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">Tailwind CSS 学习教程 - 从入门到精通</p>
+        </div>
+    </footer>
+</body>
+</html>

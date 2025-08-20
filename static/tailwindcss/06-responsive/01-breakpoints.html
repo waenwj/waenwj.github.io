@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式设计 - 响应式断点和移动优先设计</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 页面标题 -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <h1 class="text-3xl font-bold text-gray-900">Tailwind CSS 学习</h1>
+                <div class="flex items-center space-x-4">
+                    <p class="text-gray-600">第6课：响应式设计</p>
+                    <a href="../index.html" class="text-blue-600 hover:text-blue-700 transition-colors">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 响应式设计介绍 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">响应式设计 (Responsive Design)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">什么是响应式设计？</h3>
+                <p class="text-gray-700 mb-4">
+                    响应式设计是指网站能够自动适应不同屏幕尺寸的设计方法。Tailwind CSS 采用移动优先的设计理念，默认样式针对移动设备，然后通过断点前缀为更大的屏幕添加样式。
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">移动优先理念：</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>• <strong>默认样式</strong> - 针对移动设备设计</li>
+                            <li>• <strong>断点前缀</strong> - sm:, md:, lg:, xl:, 2xl:</li>
+                            <li>• <strong>渐进增强</strong> - 从移动端开始，逐步增强</li>
+                            <li>• <strong>性能优化</strong> - 减少不必要的样式加载</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">断点系统：</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>sm:</span>
+                                <span class="text-gray-600">640px+ (平板)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>md:</span>
+                                <span class="text-gray-600">768px+ (小桌面)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>lg:</span>
+                                <span class="text-gray-600">1024px+ (桌面)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>xl:</span>
+                                <span class="text-gray-600">1280px+ (大桌面)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>2xl:</span>
+                                <span class="text-gray-600">1536px+ (超大屏幕)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 响应式断点 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">响应式断点 (Breakpoints)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 断点演示 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">断点演示</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-red-100 rounded">
+                            <p class="text-sm font-medium text-red-800">移动端 (默认)</p>
+                            <p class="text-xs text-red-600">小于 640px</p>
+                        </div>
+                        <div class="p-4 bg-orange-100 rounded sm:block hidden">
+                            <p class="text-sm font-medium text-orange-800">平板 (sm:)</p>
+                            <p class="text-xs text-orange-600">640px 及以上</p>
+                        </div>
+                        <div class="p-4 bg-yellow-100 rounded md:block hidden">
+                            <p class="text-sm font-medium text-yellow-800">小桌面 (md:)</p>
+                            <p class="text-xs text-yellow-600">768px 及以上</p>
+                        </div>
+                        <div class="p-4 bg-green-100 rounded lg:block hidden">
+                            <p class="text-sm font-medium text-green-800">桌面 (lg:)</p>
+                            <p class="text-xs text-green-600">1024px 及以上</p>
+                        </div>
+                        <div class="p-4 bg-blue-100 rounded xl:block hidden">
+                            <p class="text-sm font-medium text-blue-800">大桌面 (xl:)</p>
+                            <p class="text-xs text-blue-600">1280px 及以上</p>
+                        </div>
+                        <div class="p-4 bg-purple-100 rounded 2xl:block hidden">
+                            <p class="text-sm font-medium text-purple-800">超大屏幕 (2xl:)</p>
+                            <p class="text-xs text-purple-600">1536px 及以上</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 断点使用 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">断点使用示例</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-100 rounded">
+                            <p class="text-sm font-medium mb-2">响应式文字大小：</p>
+                            <p class="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-700">
+                                这段文字在不同屏幕尺寸下会改变大小
+                            </p>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-100 rounded">
+                            <p class="text-sm font-medium mb-2">响应式间距：</p>
+                            <div class="p-2 md:p-4 lg:p-6 bg-blue-200 rounded">
+                                <p class="text-xs text-blue-800">内边距会随屏幕尺寸增加</p>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-100 rounded">
+                            <p class="text-sm font-medium mb-2">响应式显示：</p>
+                            <div class="space-y-2">
+                                <div class="bg-red-200 p-2 rounded text-xs">移动端显示</div>
+                                <div class="bg-green-200 p-2 rounded text-xs md:hidden">仅移动端显示</div>
+                                <div class="bg-blue-200 p-2 rounded text-xs hidden md:block">仅桌面端显示</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 响应式布局 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">响应式布局 (Responsive Layout)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 响应式网格 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">响应式网格</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-blue-100 p-4 rounded text-center">
+                            <p class="text-sm font-medium text-blue-800">项目 1</p>
+                            <p class="text-xs text-blue-600">1列 → 2列 → 3列</p>
+                        </div>
+                        <div class="bg-green-100 p-4 rounded text-center">
+                            <p class="text-sm font-medium text-green-800">项目 2</p>
+                            <p class="text-xs text-green-600">1列 → 2列 → 3列</p>
+                        </div>
+                        <div class="bg-purple-100 p-4 rounded text-center">
+                            <p class="text-sm font-medium text-purple-800">项目 3</p>
+                            <p class="text-xs text-purple-600">1列 → 2列 → 3列</p>
+                        </div>
+                        <div class="bg-orange-100 p-4 rounded text-center">
+                            <p class="text-sm font-medium text-orange-800">项目 4</p>
+                            <p class="text-xs text-orange-600">1列 → 2列 → 3列</p>
+                        </div>
+                        <div class="bg-red-100 p-4 rounded text-center">
+                            <p class="text-sm font-medium text-red-800">项目 5</p>
+                            <p class="text-xs text-red-600">1列 → 2列 → 3列</p>
+                        </div>
+                        <div class="bg-yellow-100 p-4 rounded text-center">
+                            <p class="text-sm font-medium text-yellow-800">项目 6</p>
+                            <p class="text-xs text-yellow-600">1列 → 2列 → 3列</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 响应式 Flexbox -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">响应式 Flexbox</h3>
+                    <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                        <div class="flex-1 bg-blue-100 p-4 rounded text-center">
+                            <p class="text-sm font-medium text-blue-800">垂直 → 水平</p>
+                            <p class="text-xs text-blue-600">flex-col → flex-row</p>
+                        </div>
+                        <div class="flex-1 bg-green-100 p-4 rounded text-center">
+                            <p class="text-sm font-medium text-green-800">垂直 → 水平</p>
+                            <p class="text-xs text-green-600">flex-col → flex-row</p>
+                        </div>
+                        <div class="flex-1 bg-purple-100 p-4 rounded text-center">
+                            <p class="text-sm font-medium text-purple-800">垂直 → 水平</p>
+                            <p class="text-xs text-purple-600">flex-col → flex-row</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 响应式间距 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">响应式间距 (Responsive Spacing)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">响应式间距示例</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 响应式内边距 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">响应式内边距</h4>
+                        <div class="space-y-4">
+                            <div class="p-2 md:p-4 lg:p-6 bg-blue-100 rounded">
+                                <p class="text-sm font-medium text-blue-800">p-2 md:p-4 lg:p-6</p>
+                                <p class="text-xs text-blue-600">内边距随屏幕尺寸增加</p>
+                            </div>
+                            
+                            <div class="px-4 md:px-8 lg:px-12 bg-green-100 rounded">
+                                <p class="text-sm font-medium text-green-800">px-4 md:px-8 lg:px-12</p>
+                                <p class="text-xs text-green-600">水平内边距响应式变化</p>
+                            </div>
+                            
+                            <div class="py-2 md:py-4 lg:py-6 bg-purple-100 rounded">
+                                <p class="text-sm font-medium text-purple-800">py-2 md:py-4 lg:py-6</p>
+                                <p class="text-xs text-purple-600">垂直内边距响应式变化</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 响应式外边距 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">响应式外边距</h4>
+                        <div class="space-y-4">
+                            <div class="m-2 md:m-4 lg:m-6 bg-orange-100 rounded">
+                                <p class="text-sm font-medium text-orange-800">m-2 md:m-4 lg:m-6</p>
+                                <p class="text-xs text-orange-600">外边距随屏幕尺寸增加</p>
+                            </div>
+                            
+                            <div class="mx-4 md:mx-8 lg:mx-12 bg-red-100 rounded">
+                                <p class="text-sm font-medium text-red-800">mx-4 md:mx-8 lg:mx-12</p>
+                                <p class="text-xs text-red-600">水平外边距响应式变化</p>
+                            </div>
+                            
+                            <div class="my-2 md:my-4 lg:my-6 bg-yellow-100 rounded">
+                                <p class="text-sm font-medium text-yellow-800">my-2 md:my-4 lg:my-6</p>
+                                <p class="text-xs text-yellow-600">垂直外边距响应式变化</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 响应式文字 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">响应式文字 (Responsive Typography)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 响应式字体大小 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">响应式字体大小</h3>
+                    <div class="space-y-4">
+                        <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900">
+                            响应式标题
+                        </h1>
+                        <p class="text-sm md:text-base lg:text-lg text-gray-700">
+                            这段文字在不同屏幕尺寸下会改变大小，确保在所有设备上都有良好的可读性。
+                        </p>
+                        <p class="text-xs md:text-sm lg:text-base text-gray-600">
+                            小字说明也会根据屏幕尺寸调整，移动端使用较小字体，桌面端使用较大字体。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 响应式文字对齐 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">响应式文字对齐</h3>
+                    <div class="space-y-4">
+                        <p class="text-left md:text-center lg:text-right text-gray-700">
+                            这段文字在移动端左对齐，平板端居中对齐，桌面端右对齐。
+                        </p>
+                        <p class="text-center md:text-left lg:text-center text-gray-700">
+                            这段文字在移动端居中对齐，平板端左对齐，桌面端居中对齐。
+                        </p>
+                        <p class="text-right md:text-center lg:text-left text-gray-700">
+                            这段文字在移动端右对齐，平板端居中对齐，桌面端左对齐。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 响应式显示 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">响应式显示 (Responsive Display)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">显示和隐藏</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 响应式显示 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">响应式显示</h4>
+                        <div class="space-y-2">
+                            <div class="block md:hidden bg-blue-100 p-3 rounded">
+                                <p class="text-sm font-medium text-blue-800">仅移动端显示</p>
+                                <p class="text-xs text-blue-600">block md:hidden</p>
+                            </div>
+                            <div class="hidden md:block lg:hidden bg-green-100 p-3 rounded">
+                                <p class="text-sm font-medium text-green-800">仅平板端显示</p>
+                                <p class="text-xs text-green-600">hidden md:block lg:hidden</p>
+                            </div>
+                            <div class="hidden lg:block bg-purple-100 p-3 rounded">
+                                <p class="text-sm font-medium text-purple-800">仅桌面端显示</p>
+                                <p class="text-xs text-purple-600">hidden lg:block</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 响应式 Flex 显示 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">响应式 Flex 显示</h4>
+                        <div class="space-y-2">
+                            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
+                                <div class="bg-orange-100 p-2 rounded text-center">
+                                    <p class="text-xs font-medium text-orange-800">项目 1</p>
+                                </div>
+                                <div class="bg-red-100 p-2 rounded text-center">
+                                    <p class="text-xs font-medium text-red-800">项目 2</p>
+                                </div>
+                                <div class="bg-yellow-100 p-2 rounded text-center">
+                                    <p class="text-xs font-medium text-yellow-800">项目 3</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-600">flex-col md:flex-row</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实际应用示例 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">实际应用示例</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 响应式导航栏 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">响应式导航栏</h3>
+                    
+                    <nav class="bg-gray-800 text-white p-4 rounded-lg">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div class="flex items-center justify-between mb-4 md:mb-0">
+                                <h1 class="text-xl font-bold">Logo</h1>
+                                <button class="md:hidden bg-gray-700 px-3 py-1 rounded text-sm">
+                                    菜单
+                                </button>
+                            </div>
+                            <div class="hidden md:flex space-x-4">
+                                <a href="#" class="hover:text-blue-300 transition-colors">首页</a>
+                                <a href="#" class="hover:text-blue-300 transition-colors">产品</a>
+                                <a href="#" class="hover:text-blue-300 transition-colors">关于</a>
+                                <a href="#" class="hover:text-blue-300 transition-colors">联系</a>
+                            </div>
+                        </div>
+                    </nav>
+                    
+                    <div class="mt-4 p-3 bg-gray-100 rounded text-sm">
+                        <p class="font-medium mb-2">使用的响应式类：</p>
+                        <ul class="text-xs space-y-1">
+                            <li>• flex-col md:flex-row - 垂直布局变水平布局</li>
+                            <li>• hidden md:flex - 移动端隐藏，桌面端显示</li>
+                            <li>• md:hidden - 桌面端隐藏，移动端显示</li>
+                            <li>• mb-4 md:mb-0 - 响应式外边距</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 响应式卡片 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">响应式卡片</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="border rounded-lg p-4">
+                            <h4 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">产品标题</h4>
+                            <p class="text-sm md:text-base text-gray-600 mb-3">
+                                产品描述信息，文字大小会随屏幕尺寸调整。
+                            </p>
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                                <span class="text-lg font-bold text-green-600 mb-2 sm:mb-0">¥299</span>
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600">
+                                    购买
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-lg p-4">
+                            <h4 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">产品标题</h4>
+                            <p class="text-sm md:text-base text-gray-600 mb-3">
+                                产品描述信息，文字大小会随屏幕尺寸调整。
+                            </p>
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                                <span class="text-lg font-bold text-green-600 mb-2 sm:mb-0">¥199</span>
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600">
+                                    购买
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-lg p-4 sm:col-span-2 lg:col-span-1">
+                            <h4 class="text-lg md:text-xl font-semibold text-gray-900 mb-2">产品标题</h4>
+                            <p class="text-sm md:text-base text-gray-600 mb-3">
+                                产品描述信息，文字大小会随屏幕尺寸调整。
+                            </p>
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                                <span class="text-lg font-bold text-green-600 mb-2 sm:mb-0">¥399</span>
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600">
+                                    购买
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 p-3 bg-gray-100 rounded text-sm">
+                        <p class="font-medium mb-2">使用的响应式类：</p>
+                        <ul class="text-xs space-y-1">
+                            <li>• grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 - 响应式网格</li>
+                            <li>• text-lg md:text-xl - 响应式字体大小</li>
+                            <li>• flex-col sm:flex-row - 响应式 Flexbox</li>
+                            <li>• sm:col-span-2 lg:col-span-1 - 响应式列跨度</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 练习区域 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">练习区域</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">尝试创建响应式布局</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 练习1：响应式卡片 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">练习1：响应式卡片</h4>
+                        <div class="space-y-4">
+                            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 md:p-6 rounded-lg">
+                                <h5 class="text-lg md:text-xl font-bold mb-2">响应式标题</h5>
+                                <p class="text-sm md:text-base opacity-90">
+                                    这个卡片的样式会根据屏幕尺寸自动调整。
+                                </p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-green-500 to-blue-600 text-white p-4 md:p-6 rounded-lg">
+                                <h5 class="text-lg md:text-xl font-bold mb-2">另一个卡片</h5>
+                                <p class="text-sm md:text-base opacity-90">
+                                    内边距和字体大小都会响应式变化。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 练习2：响应式按钮组 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">练习2：响应式按钮组</h4>
+                        <div class="space-y-3">
+                            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                                <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                                    按钮 1
+                                </button>
+                                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                                    按钮 2
+                                </button>
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                    按钮 3
+                                </button>
+                            </div>
+                            
+                            <div class="text-center sm:text-left lg:text-right">
+                                <p class="text-sm text-gray-600">
+                                    按钮组在移动端垂直排列，桌面端水平排列。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                    <h4 class="font-medium text-gray-900 mb-2">练习提示：</h4>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>• 尝试使用不同的断点：sm:, md:, lg:, xl:, 2xl:</li>
+                        <li>• 尝试响应式网格：grid-cols-1 sm:grid-cols-2 lg:grid-cols-3</li>
+                        <li>• 尝试响应式 Flexbox：flex-col md:flex-row</li>
+                        <li>• 尝试响应式间距：p-4 md:p-6 lg:p-8</li>
+                        <li>• 尝试响应式字体：text-base md:text-lg lg:text-xl</li>
+                        <li>• 尝试响应式显示：hidden md:block, block md:hidden</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下一步 -->
+        <section class="text-center">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">恭喜！你完成了第六课</h2>
+                <p class="text-lg mb-6">你已经掌握了 Tailwind CSS 的响应式设计</p>
+                <a href="../07-components/01-buttons.html" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    继续下一课：组件构建 →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">Tailwind CSS 学习教程 - 从入门到精通</p>
+        </div>
+    </footer>
+</body>
+</html>

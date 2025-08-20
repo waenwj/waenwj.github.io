@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS 学习教程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- 页面标题 -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-8 text-center">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Tailwind CSS 学习教程</h1>
+                <p class="text-xl text-gray-600">从入门到精通的完整学习路径</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- 课程概览 -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold text-gray-900 mb-8 text-center">课程大纲</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 第一阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">基础概念</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">了解 Tailwind CSS 的核心概念和实用优先理念</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 什么是 Tailwind CSS</li>
+                        <li>• 实用优先理念</li>
+                        <li>• 基础工具类</li>
+                    </ul>
+                    <a href="01-basics/01-introduction.html" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+
+                <!-- 第二阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">布局基础</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">掌握容器、显示类型和 Flexbox 布局</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 容器 (Container)</li>
+                        <li>• 显示类型 (Display)</li>
+                        <li>• Flexbox 布局</li>
+                    </ul>
+                    <a href="02-layout/01-container.html" class="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+
+                <!-- 第三阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">间距系统</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">学习内边距、外边距和间距工具类</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 内边距 (Padding)</li>
+                        <li>• 外边距 (Margin)</li>
+                        <li>• 间距工具类</li>
+                    </ul>
+                    <a href="03-spacing/01-padding-margin.html" class="inline-block bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+
+                <!-- 第四阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-orange-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">颜色系统</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">掌握颜色命名规范和颜色工具类</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 颜色命名规范</li>
+                        <li>• 背景色和文字颜色</li>
+                        <li>• 颜色透明度</li>
+                    </ul>
+                    <a href="04-colors/01-color-system.html" class="inline-block bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+
+                <!-- 第五阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">排版系统</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">学习字体大小、粗细、行高等排版属性</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 字体大小 (text-size)</li>
+                        <li>• 字体粗细 (font-weight)</li>
+                        <li>• 行高和对齐</li>
+                    </ul>
+                    <a href="05-typography/01-text-styles.html" class="inline-block bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+
+                <!-- 第六阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-indigo-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-sm">6</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">响应式设计</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">掌握响应式断点和移动优先设计</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 响应式断点</li>
+                        <li>• 移动优先设计</li>
+                        <li>• 响应式工具类</li>
+                    </ul>
+                    <a href="06-responsive/01-breakpoints.html" class="inline-block bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+
+                <!-- 第七阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-teal-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-teal-500 text-white rounded-full flex items-center justify-center font-bold text-sm">7</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">组件构建</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">学习构建可复用的 UI 组件</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 按钮组件</li>
+                        <li>• 卡片组件</li>
+                        <li>• 表单组件</li>
+                    </ul>
+                    <a href="07-components/01-buttons.html" class="inline-block bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+
+                <!-- 第八阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-rose-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-rose-500 text-white rounded-full flex items-center justify-center font-bold text-sm">8</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">动画效果</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">掌握过渡动画和变换效果</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 过渡动画</li>
+                        <li>• 变换效果</li>
+                        <li>• 关键帧动画</li>
+                    </ul>
+                    <a href="08-animations/01-transitions.html" class="inline-block bg-rose-500 text-white px-4 py-2 rounded hover:bg-rose-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+
+                <!-- 第九阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-amber-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold text-sm">9</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">实战项目</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">综合运用所学知识构建实际项目</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 落地页设计</li>
+                        <li>• 综合应用</li>
+                        <li>• 最佳实践</li>
+                    </ul>
+                    <a href="09-projects/01-landing-page.html" class="inline-block bg-amber-500 text-white px-4 py-2 rounded hover:bg-amber-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+
+                <!-- 第十阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-indigo-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-sm">10</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">进阶技巧</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">掌握 Tailwind CSS 的高级用法</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 自定义配置</li>
+                        <li>• 复杂布局</li>
+                        <li>• 性能优化</li>
+                    </ul>
+                    <a href="10-advanced/01-advanced-techniques.html" class="inline-block bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+
+                <!-- 第十一阶段 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-emerald-500">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-sm">11</div>
+                        <h3 class="text-lg font-semibold text-gray-900 ml-3">最佳实践</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">学习代码组织和团队协作</p>
+                    <ul class="text-sm text-gray-600 space-y-1 mb-4">
+                        <li>• 代码组织</li>
+                        <li>• 命名规范</li>
+                        <li>• 团队协作</li>
+                    </ul>
+                    <a href="10-advanced/02-best-practices.html" class="inline-block bg-emerald-500 text-white px-4 py-2 rounded hover:bg-emerald-600 transition-colors">
+                        开始学习 →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 学习建议 -->
+        <section class="mb-12">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4 text-center">学习建议</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">学习方法</h3>
+                        <ul class="space-y-2">
+                            <li>• 按顺序学习，循序渐进</li>
+                            <li>• 每个概念都要动手实践</li>
+                            <li>• 多尝试不同的类名组合</li>
+                            <li>• 查看浏览器开发者工具</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-3">实践建议</h3>
+                        <ul class="space-y-2">
+                            <li>• 完成每个练习区域的任务</li>
+                            <li>• 尝试修改示例代码</li>
+                            <li>• 创建自己的小项目</li>
+                            <li>• 参考官方文档</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 快速开始 -->
+        <section class="mb-12">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center">快速开始</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">环境准备</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">现代浏览器</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">代码编辑器</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">本地服务器</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">学习路径</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">1</div>
+                                <span class="text-gray-700">基础概念</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">2</div>
+                                <span class="text-gray-700">布局基础</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">3</div>
+                                <span class="text-gray-700">间距系统</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">4</div>
+                                <span class="text-gray-700">颜色和排版</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">5</div>
+                                <span class="text-gray-700">响应式设计</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 资源链接 -->
+        <section class="mb-12">
+            <div class="bg-gray-100 p-8 rounded-lg">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center">学习资源</h2>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-lg font-medium text-gray-900 mb-3">官方文档</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://tailwindcss.com/docs" class="text-blue-600 hover:underline">Tailwind CSS 官方文档</a></li>
+                            <li><a href="https://tailwindcss.cn/" class="text-blue-600 hover:underline">Tailwind CSS 中文文档</a></li>
+                            <li><a href="https://tailwindui.com/" class="text-blue-600 hover:underline">Tailwind UI 组件库</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-lg font-medium text-gray-900 mb-3">工具推荐</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://play.tailwindcss.com/" class="text-blue-600 hover:underline">Tailwind 在线编辑器</a></li>
+                            <li><a href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss" class="text-blue-600 hover:underline">VS Code 插件</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-lg font-medium text-gray-900 mb-3">社区资源</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://github.com/tailwindlabs/tailwindcss" class="text-blue-600 hover:underline">GitHub 仓库</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 开始学习按钮 -->
+        <section class="text-center">
+            <div class="bg-gradient-to-r from-green-500 to-blue-600 text-white p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4">准备好开始学习了吗？</h2>
+                <p class="text-lg mb-6">从基础概念开始，逐步掌握 Tailwind CSS 的所有技能</p>
+                <a href="01-basics/01-introduction.html" class="inline-block bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg">
+                    开始第一课 →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">Tailwind CSS 学习教程 - 从入门到精通</p>
+            <p class="text-gray-500 text-sm mt-2">持续更新中，欢迎反馈和建议</p>
+        </div>
+    </footer>
+</body>
+</html>

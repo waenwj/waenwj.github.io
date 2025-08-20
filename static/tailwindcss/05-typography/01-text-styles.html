@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排版系统 - 字体大小、粗细、行高等</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 页面标题 -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <h1 class="text-3xl font-bold text-gray-900">Tailwind CSS 学习</h1>
+                <div class="flex items-center space-x-4">
+                    <p class="text-gray-600">第5课：排版系统</p>
+                    <a href="../index.html" class="text-blue-600 hover:text-blue-700 transition-colors">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 排版系统介绍 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">排版系统 (Typography)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">什么是排版系统？</h3>
+                <p class="text-gray-700 mb-4">
+                    Tailwind CSS 的排版系统提供了丰富的工具类来控制文字的显示效果，包括字体大小、粗细、行高、对齐方式等。
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">排版属性：</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>• <strong>字体大小</strong> - text-xs, text-sm, text-base, text-lg, text-xl, text-2xl...</li>
+                            <li>• <strong>字体粗细</strong> - font-thin, font-light, font-normal, font-medium, font-semibold, font-bold...</li>
+                            <li>• <strong>行高</strong> - leading-none, leading-tight, leading-normal, leading-relaxed...</li>
+                            <li>• <strong>文字对齐</strong> - text-left, text-center, text-right, text-justify</li>
+                            <li>• <strong>文字装饰</strong> - underline, line-through, no-underline</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">使用示例：</h4>
+                        <div class="space-y-2">
+                            <p class="text-2xl font-bold text-blue-600">大标题文字</p>
+                            <p class="text-lg font-semibold text-gray-800">副标题文字</p>
+                            <p class="text-base text-gray-700">正文内容</p>
+                            <p class="text-sm text-gray-600">小字说明</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 字体大小 (Font Size) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">字体大小 (Font Size)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 基础字体大小 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">基础字体大小</h3>
+                    <div class="space-y-3">
+                        <p class="text-xs text-gray-700">text-xs (0.75rem / 12px) - 最小字体</p>
+                        <p class="text-sm text-gray-700">text-sm (0.875rem / 14px) - 小字体</p>
+                        <p class="text-base text-gray-700">text-base (1rem / 16px) - 基础字体</p>
+                        <p class="text-lg text-gray-700">text-lg (1.125rem / 18px) - 大字体</p>
+                        <p class="text-xl text-gray-700">text-xl (1.25rem / 20px) - 超大字体</p>
+                        <p class="text-2xl text-gray-700">text-2xl (1.5rem / 24px) - 2倍字体</p>
+                        <p class="text-3xl text-gray-700">text-3xl (1.875rem / 30px) - 3倍字体</p>
+                        <p class="text-4xl text-gray-700">text-4xl (2.25rem / 36px) - 4倍字体</p>
+                        <p class="text-5xl text-gray-700">text-5xl (3rem / 48px) - 5倍字体</p>
+                        <p class="text-6xl text-gray-700">text-6xl (3.75rem / 60px) - 6倍字体</p>
+                    </div>
+                </div>
+
+                <!-- 字体大小对比 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">字体大小对比</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="text-4xl font-bold text-blue-600 mb-2">主标题</h4>
+                            <p class="text-lg text-gray-600">使用 text-4xl 和 font-bold</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="text-2xl font-semibold text-green-600 mb-2">副标题</h4>
+                            <p class="text-base text-gray-600">使用 text-2xl 和 font-semibold</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="text-xl font-medium text-purple-600 mb-2">小标题</h4>
+                            <p class="text-sm text-gray-600">使用 text-xl 和 font-medium</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-gray-500 pl-4">
+                            <h4 class="text-base font-normal text-gray-700 mb-2">正文</h4>
+                            <p class="text-sm text-gray-600">使用 text-base 和 font-normal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 字体粗细 (Font Weight) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">字体粗细 (Font Weight)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 字体粗细级别 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">字体粗细级别</h3>
+                    <div class="space-y-3">
+                        <p class="text-lg font-thin text-gray-700">font-thin (100) - 极细</p>
+                        <p class="text-lg font-extralight text-gray-700">font-extralight (200) - 超细</p>
+                        <p class="text-lg font-light text-gray-700">font-light (300) - 细体</p>
+                        <p class="text-lg font-normal text-gray-700">font-normal (400) - 正常</p>
+                        <p class="text-lg font-medium text-gray-700">font-medium (500) - 中等</p>
+                        <p class="text-lg font-semibold text-gray-700">font-semibold (600) - 半粗</p>
+                        <p class="text-lg font-bold text-gray-700">font-bold (700) - 粗体</p>
+                        <p class="text-lg font-extrabold text-gray-700">font-extrabold (800) - 超粗</p>
+                        <p class="text-lg font-black text-gray-700">font-black (900) - 最粗</p>
+                    </div>
+                </div>
+
+                <!-- 字体粗细应用 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">字体粗细应用</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-blue-50 rounded-lg">
+                            <h4 class="text-xl font-bold text-blue-800 mb-2">重要信息</h4>
+                            <p class="text-blue-700 font-medium">使用粗体突出重要内容</p>
+                        </div>
+                        
+                        <div class="p-4 bg-green-50 rounded-lg">
+                            <h4 class="text-lg font-semibold text-green-800 mb-2">提示信息</h4>
+                            <p class="text-green-700 font-normal">使用中等粗细显示提示</p>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <h4 class="text-base font-medium text-gray-800 mb-2">普通文本</h4>
+                            <p class="text-gray-600 font-light">使用细体显示辅助信息</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行高 (Line Height) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">行高 (Line Height)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 行高级别 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">行高级别</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium mb-2">leading-none (1)</p>
+                            <p class="text-base leading-none bg-gray-100 p-2 rounded">
+                                这是没有行高的文本，所有行都紧密排列在一起。这适合单行文本或需要紧凑布局的场景。
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">leading-tight (1.25)</p>
+                            <p class="text-base leading-tight bg-gray-100 p-2 rounded">
+                                这是紧凑行高的文本，行间距较小但仍然清晰可读。适合标题和重要文本。
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">leading-normal (1.5)</p>
+                            <p class="text-base leading-normal bg-gray-100 p-2 rounded">
+                                这是正常行高的文本，提供了良好的可读性。这是大多数文本的默认选择。
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">leading-relaxed (1.625)</p>
+                            <p class="text-base leading-relaxed bg-gray-100 p-2 rounded">
+                                这是宽松行高的文本，提供了更多的呼吸空间。适合长段落和正文内容。
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">leading-loose (2)</p>
+                            <p class="text-base leading-loose bg-gray-100 p-2 rounded">
+                                这是最宽松的行高，提供了最大的行间距。适合需要强调可读性的长文本。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 行高应用 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">行高应用场景</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">标题文本</h4>
+                            <p class="text-2xl font-bold leading-tight text-gray-800">
+                                使用紧凑行高让标题更紧凑
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">正文内容</h4>
+                            <p class="text-base leading-relaxed text-gray-700">
+                                正文内容使用宽松的行高，提高可读性。这样可以让读者更容易阅读长段落，减少视觉疲劳。
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold mb-2">代码注释</h4>
+                            <p class="text-sm leading-normal text-gray-600 font-mono">
+                                // 代码注释使用正常行高<br>
+                                // 保持代码的可读性<br>
+                                // 同时不会占用太多空间
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文字对齐 (Text Alignment) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">文字对齐 (Text Alignment)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">对齐方式</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- 基础对齐 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">基础对齐方式</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm font-medium mb-2">text-left (左对齐)</p>
+                                <p class="text-base text-left bg-gray-100 p-3 rounded">
+                                    这是左对齐的文本。左对齐是最常见的文本对齐方式，特别适合阅读长段落。
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <p class="text-sm font-medium mb-2">text-center (居中对齐)</p>
+                                <p class="text-base text-center bg-gray-100 p-3 rounded">
+                                    这是居中对齐的文本。居中对齐适合标题、按钮文字和短文本。
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <p class="text-sm font-medium mb-2">text-right (右对齐)</p>
+                                <p class="text-base text-right bg-gray-100 p-3 rounded">
+                                    这是右对齐的文本。右对齐适合数字、日期和某些特殊布局。
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <p class="text-sm font-medium mb-2">text-justify (两端对齐)</p>
+                                <p class="text-base text-justify bg-gray-100 p-3 rounded">
+                                    这是两端对齐的文本。两端对齐让文本在容器中均匀分布，适合长段落。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 对齐应用 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">实际应用</h4>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-blue-50 rounded-lg">
+                                <h5 class="text-lg font-semibold text-center text-blue-800 mb-2">页面标题</h5>
+                                <p class="text-sm text-center text-blue-600">标题通常使用居中对齐</p>
+                            </div>
+                            
+                            <div class="p-4 bg-green-50 rounded-lg">
+                                <h5 class="text-base font-medium text-left text-green-800 mb-2">文章段落</h5>
+                                <p class="text-sm text-left text-green-700 leading-relaxed">
+                                    正文内容通常使用左对齐，这样更容易阅读。
+                                </p>
+                            </div>
+                            
+                            <div class="p-4 bg-purple-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-purple-700">左侧信息</span>
+                                    <span class="text-sm text-purple-700 text-right">右侧信息</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文字装饰 (Text Decoration) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">文字装饰 (Text Decoration)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 文字装饰类型 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">文字装饰类型</h3>
+                    <div class="space-y-3">
+                        <p class="text-lg underline text-blue-600">underline - 下划线</p>
+                        <p class="text-lg line-through text-red-600">line-through - 删除线</p>
+                        <p class="text-lg no-underline text-green-600">no-underline - 无下划线</p>
+                        <p class="text-lg underline decoration-dotted text-purple-600">decoration-dotted - 点状下划线</p>
+                        <p class="text-lg underline decoration-dashed text-orange-600">decoration-dashed - 虚线下划线</p>
+                        <p class="text-lg underline decoration-wavy text-pink-600">decoration-wavy - 波浪下划线</p>
+                    </div>
+                </div>
+
+                <!-- 文字装饰应用 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">实际应用</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-base font-medium mb-2">链接样式</h4>
+                            <a href="#" class="text-blue-600 underline hover:no-underline">这是一个链接</a>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-base font-medium mb-2">价格显示</h4>
+                            <p class="text-lg">
+                                <span class="line-through text-gray-500">¥199</span>
+                                <span class="text-red-600 font-bold ml-2">¥99</span>
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-base font-medium mb-2">重要提示</h4>
+                            <p class="text-sm text-red-600 underline decoration-wavy">
+                                这是一个重要的警告信息
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实际应用示例 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">实际应用示例</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 文章排版 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">文章排版</h3>
+                    
+                    <article class="space-y-4">
+                        <header>
+                            <h1 class="text-3xl font-bold text-gray-900 leading-tight mb-2">文章标题</h1>
+                            <p class="text-lg text-gray-600 font-medium">副标题描述</p>
+                            <div class="flex items-center space-x-4 mt-3">
+                                <span class="text-sm text-gray-500">作者：张三</span>
+                                <span class="text-sm text-gray-500">发布时间：2024-01-01</span>
+                            </div>
+                        </header>
+                        
+                        <div class="border-t pt-4">
+                            <p class="text-base leading-relaxed text-gray-700 mb-4">
+                                这是文章的正文段落。使用合适的字体大小、行高和颜色来确保良好的可读性。
+                            </p>
+                            <p class="text-base leading-relaxed text-gray-700">
+                                第二个段落继续阐述内容，保持一致的排版风格。
+                            </p>
+                        </div>
+                        
+                        <footer class="border-t pt-4">
+                            <p class="text-sm text-gray-500 text-center">
+                                标签：<span class="text-blue-600 underline">技术</span> | 
+                                <span class="text-blue-600 underline">前端</span> | 
+                                <span class="text-blue-600 underline">CSS</span>
+                            </p>
+                        </footer>
+                    </article>
+                </div>
+
+                <!-- 卡片组件 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">卡片组件</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="border rounded-lg p-4">
+                            <h4 class="text-xl font-semibold text-gray-900 mb-2">产品名称</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-3">
+                                产品描述信息，使用较小的字体和宽松的行高。
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-bold text-green-600">¥299</span>
+                                <button class="text-sm font-medium text-blue-600 underline hover:no-underline">
+                                    查看详情
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-lg p-4">
+                            <h4 class="text-lg font-medium text-gray-900 mb-2">通知标题</h4>
+                            <p class="text-sm text-gray-700 leading-normal mb-3">
+                                通知内容使用正常行高，确保信息清晰传达。
+                            </p>
+                            <div class="text-xs text-gray-500 text-right">
+                                2024-01-01 10:30
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 练习区域 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">练习区域</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">尝试不同的排版组合</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 练习1：标题层次 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">练习1：标题层次</h4>
+                        <div class="space-y-3">
+                            <h1 class="text-4xl font-black text-gray-900 leading-tight">主标题</h1>
+                            <h2 class="text-2xl font-bold text-gray-800 leading-tight">二级标题</h2>
+                            <h3 class="text-xl font-semibold text-gray-700 leading-tight">三级标题</h3>
+                            <h4 class="text-lg font-medium text-gray-600 leading-normal">四级标题</h4>
+                            <h5 class="text-base font-normal text-gray-500 leading-normal">五级标题</h5>
+                        </div>
+                    </div>
+
+                    <!-- 练习2：文本样式 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">练习2：文本样式</h4>
+                        <div class="space-y-3">
+                            <p class="text-lg font-bold text-blue-600 underline">重要链接</p>
+                            <p class="text-base font-medium text-green-700">成功信息</p>
+                            <p class="text-sm font-normal text-gray-600 leading-relaxed">
+                                这是一段正文内容，使用较小的字体和宽松的行高来提高可读性。
+                            </p>
+                            <p class="text-xs font-light text-gray-500 text-center">
+                                版权信息 © 2024
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                    <h4 class="font-medium text-gray-900 mb-2">练习提示：</h4>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>• 尝试不同的字体大小：text-xs, text-sm, text-base, text-lg, text-xl, text-2xl...</li>
+                        <li>• 尝试不同的字体粗细：font-thin, font-light, font-normal, font-medium, font-bold...</li>
+                        <li>• 尝试不同的行高：leading-none, leading-tight, leading-normal, leading-relaxed...</li>
+                        <li>• 尝试不同的对齐方式：text-left, text-center, text-right, text-justify</li>
+                        <li>• 尝试不同的文字装饰：underline, line-through, no-underline</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下一步 -->
+        <section class="text-center">
+            <div class="bg-gradient-to-r from-red-500 to-pink-600 text-white p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">恭喜！你完成了第五课</h2>
+                <p class="text-lg mb-6">你已经掌握了 Tailwind CSS 的排版系统</p>
+                <a href="../06-responsive/01-breakpoints.html" class="inline-block bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    继续下一课：响应式设计 →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">Tailwind CSS 学习教程 - 从入门到精通</p>
+        </div>
+    </footer>
+</body>
+</html>

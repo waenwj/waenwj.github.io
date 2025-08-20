@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件构建 - 按钮组件</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 页面标题 -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <h1 class="text-3xl font-bold text-gray-900">Tailwind CSS 学习</h1>
+                <div class="flex items-center space-x-4">
+                    <p class="text-gray-600">第7课：组件构建</p>
+                    <a href="../index.html" class="text-blue-600 hover:text-blue-700 transition-colors">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 组件构建介绍 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">组件构建 (Component Building)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">什么是组件构建？</h3>
+                <p class="text-gray-700 mb-4">
+                    组件构建是指将常用的 UI 元素封装成可复用的组件。通过组合 Tailwind CSS 的工具类，我们可以创建一致、美观且易于维护的组件库。
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">组件构建的优势：</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>• <strong>一致性</strong> - 统一的视觉风格</li>
+                            <li>• <strong>可复用性</strong> - 一次构建，多处使用</li>
+                            <li>• <strong>可维护性</strong> - 集中管理样式</li>
+                            <li>• <strong>开发效率</strong> - 快速构建界面</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">常见组件类型：</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>• <strong>按钮组件</strong> - 各种样式和状态的按钮</li>
+                            <li>• <strong>卡片组件</strong> - 信息展示卡片</li>
+                            <li>• <strong>表单组件</strong> - 输入框、选择器等</li>
+                            <li>• <strong>导航组件</strong> - 导航栏、面包屑等</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 基础按钮 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">基础按钮 (Basic Buttons)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 按钮样式 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">按钮样式</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium mb-2">主要按钮</p>
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                                主要按钮
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">次要按钮</p>
+                            <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded transition-colors">
+                                次要按钮
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">成功按钮</p>
+                            <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors">
+                                成功按钮
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">危险按钮</p>
+                            <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors">
+                                危险按钮
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">警告按钮</p>
+                            <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded transition-colors">
+                                警告按钮
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 按钮变体 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">按钮变体</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium mb-2">轮廓按钮</p>
+                            <button class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded transition-colors">
+                                轮廓按钮
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">幽灵按钮</p>
+                            <button class="text-blue-500 hover:bg-blue-50 px-4 py-2 rounded transition-colors">
+                                幽灵按钮
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">链接按钮</p>
+                            <button class="text-blue-500 underline hover:no-underline px-4 py-2 transition-colors">
+                                链接按钮
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">禁用按钮</p>
+                            <button class="bg-gray-300 text-gray-500 cursor-not-allowed px-4 py-2 rounded" disabled>
+                                禁用按钮
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">加载按钮</p>
+                            <button class="bg-blue-500 text-white px-4 py-2 rounded flex items-center space-x-2">
+                                <svg class="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <span>加载中...</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 按钮尺寸 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">按钮尺寸 (Button Sizes)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">不同尺寸的按钮</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- 尺寸变体 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">尺寸变体</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <span class="text-sm font-medium w-16">小按钮:</span>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm transition-colors">
+                                    小按钮
+                                </button>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <span class="text-sm font-medium w-16">默认:</span>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                                    默认按钮
+                                </button>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <span class="text-sm font-medium w-16">大按钮:</span>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg text-lg transition-colors">
+                                    大按钮
+                                </button>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <span class="text-sm font-medium w-16">超大:</span>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl text-xl transition-colors">
+                                    超大按钮
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 响应式尺寸 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">响应式尺寸</h4>
+                        <div class="space-y-4">
+                            <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 md:px-4 md:py-2 lg:px-6 lg:py-3 rounded text-sm md:text-base lg:text-lg transition-colors">
+                                响应式按钮
+                            </button>
+                            
+                            <p class="text-xs text-gray-600">
+                                移动端：小尺寸 | 平板端：中等尺寸 | 桌面端：大尺寸
+                            </p>
+                            
+                            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                                <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded transition-colors">
+                                    按钮 1
+                                </button>
+                                <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded transition-colors">
+                                    按钮 2
+                                </button>
+                                <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded transition-colors">
+                                    按钮 3
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 按钮组 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">按钮组 (Button Groups)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 水平按钮组 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">水平按钮组</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium mb-2">基础按钮组</p>
+                            <div class="flex space-x-1">
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-l transition-colors">
+                                    左
+                                </button>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 border-l border-blue-400 transition-colors">
+                                    中
+                                </button>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r border-l border-blue-400 transition-colors">
+                                    右
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">分割按钮组</p>
+                            <div class="flex">
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-l transition-colors">
+                                    主要操作
+                                </button>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-2 border-l border-blue-400 transition-colors">
+                                    ▼
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">工具栏按钮组</p>
+                            <div class="flex space-x-1">
+                                <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-l border transition-colors">
+                                    <span class="text-sm">B</span>
+                                </button>
+                                <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 border-t border-b transition-colors">
+                                    <span class="text-sm italic">I</span>
+                                </button>
+                                <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-r border transition-colors">
+                                    <span class="text-sm underline">U</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 垂直按钮组 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">垂直按钮组</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium mb-2">垂直排列</p>
+                            <div class="flex flex-col space-y-1">
+                                <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-t transition-colors">
+                                    顶部
+                                </button>
+                                <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 border-t border-green-400 transition-colors">
+                                    中间
+                                </button>
+                                <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-b border-t border-green-400 transition-colors">
+                                    底部
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">响应式按钮组</p>
+                            <div class="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1">
+                                <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded sm:rounded-l sm:rounded-r-none transition-colors">
+                                    选项 1
+                                </button>
+                                <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 border-t sm:border-t-0 sm:border-l border-purple-400 transition-colors">
+                                    选项 2
+                                </button>
+                                <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded sm:rounded-r sm:rounded-l-none border-t sm:border-t-0 sm:border-l border-purple-400 transition-colors">
+                                    选项 3
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 图标按钮 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">图标按钮 (Icon Buttons)</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">带图标的按钮</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- 图标按钮 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">图标按钮</h4>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </button>
+                            
+                            <button class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </button>
+                            
+                            <button class="bg-red-500 hover:bg-red-600 text-white p-3 rounded-full transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                            
+                            <button class="bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded-full transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 带文字的图标按钮 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">带文字的图标按钮</h4>
+                        <div class="space-y-3">
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <span>添加项目</span>
+                            </button>
+                            
+                            <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>保存</span>
+                            </button>
+                            
+                            <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                                <span>删除</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 按钮状态 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">按钮状态 (Button States)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 交互状态 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">交互状态</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium mb-2">悬停效果</p>
+                            <button class="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white px-4 py-2 rounded transition-all duration-200 transform hover:scale-105 active:scale-95">
+                                悬停和点击效果
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">焦点状态</p>
+                            <button class="bg-green-500 hover:bg-green-600 focus:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-white px-4 py-2 rounded transition-colors">
+                                焦点状态
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">禁用状态</p>
+                            <button class="bg-gray-300 text-gray-500 cursor-not-allowed px-4 py-2 rounded opacity-50" disabled>
+                                禁用按钮
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">加载状态</p>
+                            <button class="bg-purple-500 text-white px-4 py-2 rounded flex items-center space-x-2 cursor-not-allowed opacity-75">
+                                <svg class="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <span>处理中...</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 状态变体 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">状态变体</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium mb-2">成功状态</p>
+                            <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>操作成功</span>
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">错误状态</p>
+                            <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <span>操作失败</span>
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">警告状态</p>
+                            <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <span>警告信息</span>
+                            </button>
+                        </div>
+                        
+                        <div>
+                            <p class="text-sm font-medium mb-2">信息状态</p>
+                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center space-x-2 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>信息提示</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实际应用示例 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">实际应用示例</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 表单操作 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">表单操作</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="border rounded-lg p-4">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">用户信息</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+                                    <input type="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-3 mt-4">
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                                    保存
+                                </button>
+                                <button class="border border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded transition-colors">
+                                    取消
+                                </button>
+                                <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors">
+                                    删除
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 操作面板 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">操作面板</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">快速操作</h4>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-lg flex flex-col items-center space-y-1 transition-colors">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                    <span class="text-sm">新建</span>
+                                </button>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg flex flex-col items-center space-y-1 transition-colors">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                                    </svg>
+                                    <span class="text-sm">上传</span>
+                                </button>
+                                <button class="bg-purple-500 hover:bg-purple-600 text-white p-3 rounded-lg flex flex-col items-center space-y-1 transition-colors">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                    <span class="text-sm">收藏</span>
+                                </button>
+                                <button class="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-lg flex flex-col items-center space-y-1 transition-colors">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                    </svg>
+                                    <span class="text-sm">分享</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 练习区域 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">练习区域</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">尝试创建不同的按钮</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 练习1：自定义按钮 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">练习1：自定义按钮</h4>
+                        <div class="space-y-3">
+                            <button class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                                渐变按钮
+                            </button>
+                            
+                            <button class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
+                                悬停缩放按钮
+                            </button>
+                            
+                            <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:rotate-1">
+                                悬停旋转按钮
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 练习2：按钮组合 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">练习2：按钮组合</h4>
+                        <div class="space-y-3">
+                            <div class="flex space-x-2">
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-l transition-colors">
+                                    左
+                                </button>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 border-l border-blue-400 transition-colors">
+                                    中
+                                </button>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r border-l border-blue-400 transition-colors">
+                                    右
+                                </button>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                                <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded sm:rounded-l sm:rounded-r-none transition-colors">
+                                    删除
+                                </button>
+                                <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 border-t sm:border-t-0 sm:border-l border-gray-400 transition-colors">
+                                    取消
+                                </button>
+                                <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded sm:rounded-r sm:rounded-l-none border-t sm:border-t-0 sm:border-l border-green-400 transition-colors">
+                                    确认
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                    <h4 class="font-medium text-gray-900 mb-2">练习提示：</h4>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>• 尝试使用不同的颜色组合：bg-{color}-{shade}</li>
+                        <li>• 尝试使用渐变背景：bg-gradient-to-r from-{color}-{shade} to-{color}-{shade}</li>
+                        <li>• 尝试使用变换效果：transform hover:scale-105, hover:rotate-1</li>
+                        <li>• 尝试使用阴影效果：shadow-lg hover:shadow-xl</li>
+                        <li>• 尝试使用过渡动画：transition-all duration-300</li>
+                        <li>• 尝试组合多个效果创建独特的按钮样式</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下一步 -->
+        <section class="text-center">
+            <div class="bg-gradient-to-r from-teal-500 to-cyan-600 text-white p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">恭喜！你完成了第七课</h2>
+                <p class="text-lg mb-6">你已经掌握了 Tailwind CSS 的按钮组件构建</p>
+                <a href="02-cards.html" class="inline-block bg-white text-teal-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    继续下一课：卡片组件 →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">Tailwind CSS 学习教程 - 从入门到精通</p>
+        </div>
+    </footer>
+</body>
+</html>

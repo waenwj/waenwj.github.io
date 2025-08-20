@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进阶技巧 - Tailwind CSS 高级用法</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // 启用深色模式
+            theme: {
+                extend: {
+                    colors: {
+                        'brand': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem',
+                    },
+                    maxWidth: {
+                        '8xl': '88rem',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 提取的组件样式 - CDN 环境下的实现 */
+        .btn-primary {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb;
+        }
+        
+        .btn-secondary {
+            background-color: #6b7280;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        .btn-secondary:hover {
+            background-color: #4b5563;
+        }
+        
+        .btn-danger {
+            background-color: #ef4444;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .card-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* 自定义关键帧动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes bounceSlow {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translate3d(0, 0, 0);
+            }
+            40%, 43% {
+                transform: translate3d(0, -30px, 0);
+            }
+            70% {
+                transform: translate3d(0, -15px, 0);
+            }
+            90% {
+                transform: translate3d(0, -4px, 0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        .animate-bounce-slow {
+            animation: bounceSlow 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">T</span>
+                    </div>
+                    <span class="ml-2 text-xl font-bold text-gray-900">Tailwind CSS 教程</span>
+                </div>
+                <a href="../index.html" class="text-blue-600 hover:text-blue-700 transition-colors">返回首页</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 标题区域 -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">进阶技巧</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                掌握 Tailwind CSS 的高级用法，包括自定义配置、复杂布局、性能优化等进阶技巧
+            </p>
+        </div>
+
+        <!-- 目录 -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">课程目录</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                    <a href="#custom-config" class="block text-blue-600 hover:text-blue-700 transition-colors">1. 自定义配置</a>
+                    <a href="#complex-layouts" class="block text-blue-600 hover:text-blue-700 transition-colors">2. 复杂布局技巧</a>
+                    <a href="#performance" class="block text-blue-600 hover:text-blue-700 transition-colors">3. 性能优化</a>
+                </div>
+                <div class="space-y-2">
+                    <a href="#dark-mode" class="block text-blue-600 hover:text-blue-700 transition-colors">4. 深色模式</a>
+                    <a href="#advanced-animations" class="block text-blue-600 hover:text-blue-700 transition-colors">5. 高级动画</a>
+                    <a href="#responsive-advanced" class="block text-blue-600 hover:text-blue-700 transition-colors">6. 响应式进阶</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. 自定义配置 -->
+        <section id="custom-config" class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">1. 自定义配置</h2>
+                
+                <div class="space-y-8">
+                    <!-- 自定义颜色 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">自定义颜色系统</h3>
+                        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                            <p class="text-sm text-gray-600 mb-2">配置示例：</p>
+                            <pre class="text-xs bg-gray-800 text-green-400 p-3 rounded overflow-x-auto"><code>tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'brand': {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+        }
+      }
+    }
+  }
+}</code></pre>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <div class="bg-brand-50 p-4 rounded-lg text-center">
+                                <div class="w-8 h-8 bg-brand-500 rounded-full mx-auto mb-2"></div>
+                                <p class="text-sm font-medium">brand-50</p>
+                            </div>
+                            <div class="bg-brand-200 p-4 rounded-lg text-center">
+                                <div class="w-8 h-8 bg-brand-600 rounded-full mx-auto mb-2"></div>
+                                <p class="text-sm font-medium">brand-200</p>
+                            </div>
+                            <div class="bg-brand-500 p-4 rounded-lg text-center text-white">
+                                <div class="w-8 h-8 bg-white rounded-full mx-auto mb-2"></div>
+                                <p class="text-sm font-medium">brand-500</p>
+                            </div>
+                            <div class="bg-brand-700 p-4 rounded-lg text-center text-white">
+                                <div class="w-8 h-8 bg-brand-200 rounded-full mx-auto mb-2"></div>
+                                <p class="text-sm font-medium">brand-700</p>
+                            </div>
+                            <div class="bg-brand-900 p-4 rounded-lg text-center text-white">
+                                <div class="w-8 h-8 bg-brand-300 rounded-full mx-auto mb-2"></div>
+                                <p class="text-sm font-medium">brand-900</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 bg-gradient-to-r from-brand-500 to-brand-900 p-4 rounded-lg text-center text-white">
+                            <div class="w-8 h-8 bg-white rounded-full mx-auto mb-2"></div>
+                            <p class="text-sm font-medium">渐变效果 (from-brand-500 to-brand-900)</p>
+                        </div>
+                    </div>
+
+                    <!-- 自定义间距 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">自定义间距和尺寸</h3>
+                        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                            <p class="text-sm text-gray-600 mb-2">配置示例：</p>
+                            <pre class="text-xs bg-gray-800 text-green-400 p-3 rounded overflow-x-auto"><code>theme: {
+  extend: {
+    spacing: {
+      '18': '4.5rem',    // 72px
+      '88': '22rem',     // 352px
+    },
+    maxWidth: {
+      '8xl': '88rem',    // 1408px
+    }
+  }
+}</code></pre>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-blue-100 p-18 rounded-lg text-center">
+                                <p class="text-blue-800 font-medium">自定义间距 p-18 (4.5rem = 72px)</p>
+                            </div>
+                            <div class="bg-green-100 p-4 rounded-lg text-center">
+                                <p class="text-green-800 font-medium">标准间距 p-4 (1rem = 16px)</p>
+                            </div>
+                            <div class="bg-purple-100 p-88 rounded-lg text-center">
+                                <p class="text-purple-800 font-medium">大间距 p-88 (22rem = 352px)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 bg-gray-100 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600 mb-2">自定义最大宽度示例：</p>
+                            <div class="bg-white border-2 border-dashed border-gray-300 max-w-8xl mx-auto p-4 rounded">
+                                <p class="text-center text-gray-600">max-w-8xl (88rem = 1408px)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 复杂布局技巧 -->
+        <section id="complex-layouts" class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">2. 复杂布局技巧</h2>
+                
+                <div class="space-y-8">
+                    <!-- CSS Grid 高级用法 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">CSS Grid 高级布局</h3>
+                        <div class="grid grid-cols-12 gap-4 mb-6">
+                            <div class="col-span-12 md:col-span-8 bg-blue-100 p-4 rounded-lg">
+                                <p class="text-blue-800 font-medium">主内容区域 (col-span-8)</p>
+                            </div>
+                            <div class="col-span-12 md:col-span-4 bg-green-100 p-4 rounded-lg">
+                                <p class="text-green-800 font-medium">侧边栏 (col-span-4)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-6 gap-2 mb-6">
+                            <div class="col-span-2 bg-purple-100 p-3 rounded text-center">
+                                <p class="text-purple-800 text-sm">2/6</p>
+                            </div>
+                            <div class="col-span-1 bg-purple-200 p-3 rounded text-center">
+                                <p class="text-purple-800 text-sm">1/6</p>
+                            </div>
+                            <div class="col-span-2 bg-purple-100 p-3 rounded text-center">
+                                <p class="text-purple-800 text-sm">2/6</p>
+                            </div>
+                            <div class="col-span-1 bg-purple-200 p-3 rounded text-center">
+                                <p class="text-purple-800 text-sm">1/6</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 绝对定位布局 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">绝对定位布局</h3>
+                        <div class="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-75"></div>
+                            <div class="absolute top-4 left-4 bg-white p-3 rounded-lg shadow-lg">
+                                <p class="text-sm font-medium">左上角</p>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-white p-3 rounded-lg shadow-lg">
+                                <p class="text-sm font-medium">右上角</p>
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-white p-3 rounded-lg shadow-lg">
+                                <p class="text-sm font-medium">左下角</p>
+                            </div>
+                            <div class="absolute bottom-4 right-4 bg-white p-3 rounded-lg shadow-lg">
+                                <p class="text-sm font-medium">右下角</p>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="bg-white p-4 rounded-lg shadow-lg">
+                                    <p class="font-medium">居中内容</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 粘性定位 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">粘性定位 (Sticky)</h3>
+                        <div class="space-y-4">
+                            <div class="sticky top-20 bg-yellow-100 p-4 rounded-lg border-2 border-yellow-400">
+                                <p class="text-yellow-800 font-medium">粘性元素 (top-20)</p>
+                                <p class="text-yellow-700 text-sm">滚动时会粘在距离顶部 5rem 的位置</p>
+                            </div>
+                            <div class="h-32 bg-gray-100 rounded-lg flex items-center justify-center">
+                                <p class="text-gray-600">滚动内容区域</p>
+                            </div>
+                            <div class="h-32 bg-gray-100 rounded-lg flex items-center justify-center">
+                                <p class="text-gray-600">更多内容</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 性能优化 -->
+        <section id="performance" class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">3. 性能优化技巧</h2>
+                
+                <div class="space-y-8">
+                    <!-- PurgeCSS 配置 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">PurgeCSS 配置</h3>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600 mb-2">tailwind.config.js 配置：</p>
+                            <pre class="text-xs bg-gray-800 text-green-400 p-3 rounded overflow-x-auto"><code>module.exports = {
+  content: [
+    './src/**/*.{html,js,jsx,ts,tsx}',
+    './public/**/*.html',
+  ],
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: [
+      './src/**/*.{html,js,jsx,ts,tsx}',
+      './public/**/*.html',
+    ],
+    options: {
+      safelist: ['bg-red-500', 'text-blue-600']
+    }
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- 条件类名 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">条件类名优化</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-red-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-red-800 mb-2">❌ 不推荐</h4>
+                                <pre class="text-xs bg-gray-800 text-red-400 p-2 rounded"><code>&lt;div class="bg-red-500 bg-blue-500"&gt;
+  // 重复的类名
+&lt;/div&gt;</code></pre>
+                            </div>
+                            <div class="bg-green-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 mb-2">✅ 推荐</h4>
+                                <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded"><code>&lt;div class="bg-red-500"&gt;
+  // 单一职责
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 组件提取 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">组件提取和复用</h3>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600 mb-2">使用 @apply 指令提取组件（生产环境）：</p>
+                            <pre class="text-xs bg-gray-800 text-green-400 p-3 rounded overflow-x-auto"><code>/* 在 .css 文件中使用 @apply 指令 */
+.btn-primary {
+  @apply bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors;
+}
+
+.btn-secondary {
+  @apply bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded transition-colors;
+}
+
+.btn-danger {
+  @apply bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-6 border border-gray-200;
+}
+
+.card-header {
+  @apply border-b border-gray-200 pb-4 mb-4;
+}</code></pre>
+                        </div>
+                        
+                        <div class="mt-4 bg-blue-50 p-4 rounded-lg border border-blue-200">
+                            <p class="text-sm text-blue-800">
+                                <strong>注意：</strong>@apply 指令需要在构建工具（如 PostCSS）环境中使用。在 CDN 环境中，我们使用原生 CSS 实现相同的效果。
+                            </p>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-semibold text-gray-900 mb-4">提取的组件实际使用：</h4>
+                            
+                            <!-- 按钮组件 -->
+                            <div class="mb-6">
+                                <h5 class="text-sm font-medium text-gray-700 mb-3">按钮组件：</h5>
+                                <div class="flex flex-wrap gap-4">
+                                    <button class="btn-primary">
+                                        主要按钮
+                                    </button>
+                                    <button class="btn-secondary">
+                                        次要按钮
+                                    </button>
+                                    <button class="btn-danger">
+                                        危险按钮
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- 卡片组件 -->
+                            <div class="mb-6">
+                                <h5 class="text-sm font-medium text-gray-700 mb-3">卡片组件：</h5>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h6 class="text-lg font-semibold text-gray-900">卡片标题</h6>
+                                        </div>
+                                        <p class="text-gray-600 mb-4">
+                                            这是一个使用提取的组件类构建的卡片，具有统一的样式和结构。
+                                        </p>
+                                        <div class="flex space-x-2">
+                                            <button class="btn-primary text-sm px-3 py-1">确认</button>
+                                            <button class="btn-secondary text-sm px-3 py-1">取消</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h6 class="text-lg font-semibold text-gray-900">另一个卡片</h6>
+                                        </div>
+                                        <p class="text-gray-600 mb-4">
+                                            相同的组件类可以创建多个具有一致样式的卡片组件。
+                                        </p>
+                                        <button class="btn-danger text-sm px-3 py-1">删除</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 组件对比 -->
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                                <h5 class="font-semibold text-yellow-800 mb-2">组件提取的优势：</h5>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h6 class="text-sm font-medium text-yellow-700 mb-2">❌ 未提取前：</h6>
+                                        <pre class="text-xs bg-gray-800 text-red-400 p-2 rounded"><code>&lt;button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors"&gt;
+&lt;button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors"&gt;
+&lt;button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors"&gt;</code></pre>
+                                    </div>
+                                    <div>
+                                        <h6 class="text-sm font-medium text-yellow-700 mb-2">✅ 提取后：</h6>
+                                        <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded"><code>&lt;button class="btn-primary"&gt;
+&lt;button class="btn-primary"&gt;
+&lt;button class="btn-primary"&gt;</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 构建工具配置 -->
+                            <div class="mt-4 bg-green-50 p-4 rounded-lg border border-green-200">
+                                <h5 class="font-semibold text-green-800 mb-2">生产环境配置：</h5>
+                                <p class="text-sm text-green-700 mb-3">要在生产环境中使用 @apply 指令，需要配置构建工具：</p>
+                                <pre class="text-xs bg-gray-800 text-green-400 p-3 rounded overflow-x-auto"><code>// postcss.config.js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
+
+// tailwind.config.js
+module.exports = {
+  content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+  theme: {
+    extend: {}
+  },
+  plugins: []
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 深色模式 -->
+        <section id="dark-mode" class="mb-12">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">4. 深色模式支持</h2>
+                    <button id="darkModeToggle" class="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                        <span id="darkModeText">深色模式</span>
+                    </button>
+                </div>
+                
+                <div class="space-y-8">
+                    <!-- 深色模式体验 -->
+                    <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
+                        <p class="text-blue-800 dark:text-blue-200 text-sm">
+                            <strong>💡 体验深色模式：</strong>点击右上角的切换按钮，体验整个页面的深色模式效果。所有带有 <code>dark:</code> 前缀的样式都会自动切换。
+                        </p>
+                    </div>
+                    
+                    <!-- 深色模式配置 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">深色模式配置</h3>
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">tailwind.config.js：</p>
+                            <pre class="text-xs bg-gray-800 text-green-400 p-3 rounded overflow-x-auto"><code>module.exports = {
+  darkMode: 'class', // 启用基于 class 的深色模式
+  theme: {
+    extend: {
+      colors: {
+        dark: {
+          bg: '#1a202c',
+          text: '#f7fafc',
+        }
+      }
+    }
+  }
+}</code></pre>
+                        </div>
+                        
+                        <div class="mt-4 bg-blue-50 dark:bg-blue-900 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
+                            <p class="text-sm text-blue-800 dark:text-blue-200 mb-3">
+                                <strong>注意：</strong>深色模式需要 JavaScript 来切换 <code>dark</code> 类到 <code>html</code> 元素上。
+                            </p>
+                            <p class="text-sm text-blue-700 dark:text-blue-300 mb-2">JavaScript 示例：</p>
+                            <pre class="text-xs bg-gray-800 text-green-400 p-2 rounded"><code>// 切换深色模式
+function toggleDarkMode() {
+  document.documentElement.classList.toggle('dark');
+}
+
+// 检查系统偏好
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.documentElement.classList.add('dark');
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- 深色模式示例 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">深色模式示例</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border dark:border-gray-700">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">卡片标题</h4>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    这是一个支持深色模式的卡片组件，会根据系统主题自动切换样式。
+                                </p>
+                                <button class="bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors">
+                                    操作按钮
+                                </button>
+                            </div>
+                            
+                            <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg shadow-md">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">表单元素</h4>
+                                <div class="space-y-3">
+                                    <input type="text" placeholder="输入内容" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <select class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        <option>选项 1</option>
+                                        <option>选项 2</option>
+                                        <option>选项 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 高级动画 -->
+        <section id="advanced-animations" class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">5. 高级动画效果</h2>
+                
+                <div class="space-y-8">
+                    <!-- 自定义动画 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">自定义关键帧动画</h3>
+                        <div class="mb-4">
+                            <button id="triggerAnimations" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                                重新触发动画
+                            </button>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <div id="fadeElement" class="w-16 h-16 bg-blue-500 rounded-lg animate-fade-in mx-auto mb-3 flex items-center justify-center text-white font-bold">
+                                    Fade
+                                </div>
+                                <p class="text-sm text-gray-600">淡入动画</p>
+                            </div>
+                            <div class="text-center">
+                                <div id="slideElement" class="w-16 h-16 bg-green-500 rounded-lg animate-slide-up mx-auto mb-3 flex items-center justify-center text-white font-bold">
+                                    Slide
+                                </div>
+                                <p class="text-sm text-gray-600">滑入动画</p>
+                            </div>
+                            <div class="text-center">
+                                <div id="bounceElement" class="w-16 h-16 bg-purple-500 rounded-lg animate-bounce-slow mx-auto mb-3 flex items-center justify-center text-white font-bold">
+                                    Bounce
+                                </div>
+                                <p class="text-sm text-gray-600">慢速弹跳</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-gray-100 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600 mb-2">动画配置示例：</p>
+                            <pre class="text-xs bg-gray-800 text-green-400 p-3 rounded overflow-x-auto"><code>/* 自定义关键帧动画 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 应用动画 */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- 交互动画 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">交互动画</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="group cursor-pointer">
+                                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-6 rounded-lg transform transition-all duration-300 group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-xl">
+                                        <h4 class="text-white font-semibold mb-2">悬停效果</h4>
+                                        <p class="text-blue-100 text-sm">缩放 + 旋转 + 阴影</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="group cursor-pointer">
+                                    <div class="bg-gradient-to-r from-green-500 to-teal-600 p-6 rounded-lg transform transition-all duration-500 group-hover:translate-x-4 group-hover:bg-gradient-to-r group-hover:from-teal-500 group-hover:to-green-600">
+                                        <h4 class="text-white font-semibold mb-2">滑动效果</h4>
+                                        <p class="text-green-100 text-sm">平移 + 颜色变化</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="group cursor-pointer">
+                                    <div class="bg-gradient-to-r from-red-500 to-pink-600 p-6 rounded-lg overflow-hidden relative">
+                                        <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-red-600 transform translate-x-full transition-transform duration-300 group-hover:translate-x-0"></div>
+                                        <div class="relative z-10">
+                                            <h4 class="text-white font-semibold mb-2">覆盖效果</h4>
+                                            <p class="text-red-100 text-sm">颜色覆盖动画</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="group cursor-pointer">
+                                    <div class="bg-gradient-to-r from-yellow-500 to-orange-600 p-6 rounded-lg relative overflow-hidden">
+                                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                                        <h4 class="text-white font-semibold mb-2">高亮效果</h4>
+                                        <p class="text-yellow-100 text-sm">白色覆盖层</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. 响应式进阶 -->
+        <section id="responsive-advanced" class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">6. 响应式设计进阶</h2>
+                
+                <div class="space-y-8">
+                    <!-- 容器查询模拟 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">容器查询模拟</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-blue-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800 mb-2">小容器</h4>
+                                <p class="text-blue-700 text-sm">在小屏幕上显示为单列</p>
+                                <div class="mt-3 text-xs text-blue-600">
+                                    <span class="md:hidden">📱 移动端</span>
+                                    <span class="hidden md:block lg:hidden">💻 平板</span>
+                                    <span class="hidden lg:block">🖥️ 桌面</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 mb-2">中容器</h4>
+                                <p class="text-green-700 text-sm">在中等屏幕上显示为双列</p>
+                                <div class="mt-3 text-xs text-green-600">
+                                    <span class="md:hidden">📱 移动端</span>
+                                    <span class="hidden md:block lg:hidden">💻 平板</span>
+                                    <span class="hidden lg:block">🖥️ 桌面</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-purple-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 mb-2">大容器</h4>
+                                <p class="text-purple-700 text-sm">在大屏幕上显示为三列</p>
+                                <div class="mt-3 text-xs text-purple-600">
+                                    <span class="md:hidden">📱 移动端</span>
+                                    <span class="hidden md:block lg:hidden">💻 平板</span>
+                                    <span class="hidden lg:block">🖥️ 桌面</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 方向响应式 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">方向响应式设计</h3>
+                        <div class="grid grid-cols-1 landscape:grid-cols-2 gap-4">
+                            <div class="bg-yellow-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-yellow-800 mb-2">竖屏模式</h4>
+                                <p class="text-yellow-700 text-sm">在竖屏设备上显示为单列</p>
+                            </div>
+                            <div class="bg-orange-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-orange-800 mb-2">横屏模式</h4>
+                                <p class="text-orange-700 text-sm">在横屏设备上显示为双列</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 打印样式 -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">打印样式优化</h3>
+                        <div class="mb-4">
+                            <button id="printPreviewBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors">
+                                🖨️ 打印预览
+                            </button>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg print:bg-white print:shadow-none">
+                            <h4 class="font-semibold text-gray-900 mb-3 print:text-black">打印友好内容</h4>
+                            <p class="text-gray-700 mb-4 print:text-black">
+                                这个区域在打印时会自动优化样式，隐藏不必要的元素，调整颜色和间距。
+                            </p>
+                            <div class="flex space-x-4 print:hidden">
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded">操作按钮</button>
+                                <button class="bg-gray-500 text-white px-4 py-2 rounded">次要按钮</button>
+                            </div>
+                            <div class="hidden print:block">
+                                <p class="text-sm text-gray-600">打印时显示的信息</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                            <h5 class="font-semibold text-yellow-800 mb-2">打印样式说明：</h5>
+                            <ul class="text-sm text-yellow-700 space-y-1">
+                                <li>• <code>print:hidden</code> - 打印时隐藏元素</li>
+                                <li>• <code>print:block</code> - 打印时显示为块级元素</li>
+                                <li>• <code>print:bg-white</code> - 打印时背景为白色</li>
+                                <li>• <code>print:shadow-none</code> - 打印时移除阴影</li>
+                                <li>• <code>print:text-black</code> - 打印时文字为黑色</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下一步 -->
+        <section class="text-center">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-8 text-white">
+                <h2 class="text-2xl font-bold mb-4">准备学习最佳实践？</h2>
+                <p class="text-blue-100 mb-6">
+                    接下来我们将学习 Tailwind CSS 的最佳实践，包括代码组织、性能优化、团队协作等。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="../index.html" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        返回首页
+                    </a>
+                    <a href="02-best-practices.html" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        继续学习最佳实践 →
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 深色模式 JavaScript -->
+    <script>
+        // 深色模式切换功能
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const darkModeText = document.getElementById('darkModeText');
+        
+        // 检查本地存储中的深色模式状态
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        
+        // 初始化深色模式状态
+        function initDarkMode() {
+            if (isDarkMode) {
+                document.documentElement.classList.add('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                darkModeText.textContent = '浅色模式';
+            } else {
+                document.documentElement.classList.remove('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                darkModeText.textContent = '深色模式';
+            }
+        }
+        
+        // 切换深色模式
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            if (isDark) {
+                // 切换到浅色模式
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('darkMode', 'false');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                darkModeText.textContent = '深色模式';
+            } else {
+                // 切换到深色模式
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('darkMode', 'true');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                darkModeText.textContent = '浅色模式';
+            }
+        }
+        
+        // 绑定事件监听器
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        
+        // 初始化
+        initDarkMode();
+        
+        // 动画重新触发功能
+        const triggerAnimationsBtn = document.getElementById('triggerAnimations');
+        const fadeElement = document.getElementById('fadeElement');
+        const slideElement = document.getElementById('slideElement');
+        const bounceElement = document.getElementById('bounceElement');
+        
+        function triggerAnimations() {
+            // 移除动画类
+            fadeElement.classList.remove('animate-fade-in');
+            slideElement.classList.remove('animate-slide-up');
+            bounceElement.classList.remove('animate-bounce-slow');
+            
+            // 强制重排
+            void fadeElement.offsetWidth;
+            void slideElement.offsetWidth;
+            void bounceElement.offsetWidth;
+            
+            // 重新添加动画类
+            fadeElement.classList.add('animate-fade-in');
+            slideElement.classList.add('animate-slide-up');
+            bounceElement.classList.add('animate-bounce-slow');
+        }
+        
+        triggerAnimationsBtn.addEventListener('click', triggerAnimations);
+        
+        // 打印功能
+        const printPreviewBtn = document.getElementById('printPreviewBtn');
+        
+        // 打印预览功能
+        printPreviewBtn.addEventListener('click', function() {
+            // 直接打开打印预览
+            window.print();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS 基础概念</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- 页面标题 -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <h1 class="text-3xl font-bold text-gray-900">Tailwind CSS 学习</h1>
+                <div class="flex items-center space-x-4">
+                    <p class="text-gray-600">第1课：基础概念</p>
+                    <a href="../index.html" class="text-blue-600 hover:text-blue-700 transition-colors">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 概念介绍 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">什么是 Tailwind CSS？</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 传统 CSS 方式 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">传统 CSS 方式</h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-500 text-white p-4 rounded">
+                            <p class="font-bold">传统方式需要写 CSS 类</p>
+                            <p class="text-sm opacity-90">需要定义 .button, .card 等类名</p>
+                        </div>
+                        <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto">
+<code>.button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Tailwind CSS 方式 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Tailwind CSS 方式</h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-500 text-white p-4 rounded font-bold">
+                            <p>直接使用工具类</p>
+                            <p class="text-sm opacity-90">bg-blue-500 text-white p-4 rounded font-bold</p>
+                        </div>
+                        <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto">
+<code>&lt;button class="bg-blue-500 text-white p-4 rounded font-bold"&gt;
+  按钮
+&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实用优先理念 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">实用优先 (Utility-First) 理念</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <p class="text-gray-700 mb-4">
+                    实用优先意味着直接在 HTML 中使用预定义的工具类，而不是编写自定义 CSS。
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <div class="text-2xl mb-2">🎨</div>
+                        <h4 class="font-medium text-gray-900">快速开发</h4>
+                        <p class="text-sm text-gray-600">无需编写 CSS，直接在 HTML 中应用样式</p>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <div class="text-2xl mb-2">📱</div>
+                        <h4 class="font-medium text-gray-900">响应式设计</h4>
+                        <p class="text-sm text-gray-600">内置响应式工具类，轻松适配各种设备</p>
+                    </div>
+                    <div class="text-center p-4 bg-purple-50 rounded-lg">
+                        <div class="text-2xl mb-2">🔧</div>
+                        <h4 class="font-medium text-gray-900">一致性</h4>
+                        <p class="text-sm text-gray-600">统一的设计系统，保持界面一致性</p>
+                    </div>
+                </div>
+
+                <!-- 实际示例 -->
+                <div class="border-t pt-6">
+                    <h4 class="font-medium text-gray-900 mb-3">实际示例：</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold">
+                                卡片
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-gray-600">使用的类：</p>
+                                <code class="text-xs bg-gray-100 px-2 py-1 rounded">w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 基础工具类演示 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">基础工具类演示</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 间距类 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">间距类 (Spacing)</h3>
+                    <div class="space-y-3">
+                        <div class="bg-red-100 p-2 rounded">p-2 (padding: 0.5rem)</div>
+                        <div class="bg-red-100 p-4 rounded">p-4 (padding: 1rem)</div>
+                        <div class="bg-red-100 p-8 rounded">p-8 (padding: 2rem)</div>
+                        <div class="bg-blue-100 m-2 rounded">m-2 (margin: 0.5rem)</div>
+                        <div class="bg-blue-100 m-4 rounded">m-4 (margin: 1rem)</div>
+                    </div>
+                </div>
+
+                <!-- 颜色类 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">颜色类 (Colors)</h3>
+                    <div class="space-y-3">
+                        <div class="bg-blue-500 text-white p-3 rounded">bg-blue-500 text-white</div>
+                        <div class="bg-green-500 text-white p-3 rounded">bg-green-500 text-white</div>
+                        <div class="bg-red-500 text-white p-3 rounded">bg-red-500 text-white</div>
+                        <div class="bg-yellow-500 text-white p-3 rounded">bg-yellow-500 text-white</div>
+                        <div class="bg-purple-500 text-white p-3 rounded">bg-purple-500 text-white</div>
+                    </div>
+                </div>
+
+                <!-- 尺寸类 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">尺寸类 (Sizing)</h3>
+                    <div class="space-y-3">
+                        <div class="bg-gray-200 h-8 rounded flex items-center justify-center">h-8 (height: 2rem)</div>
+                        <div class="bg-gray-200 h-12 rounded flex items-center justify-center">h-12 (height: 3rem)</div>
+                        <div class="bg-gray-200 h-16 rounded flex items-center justify-center">h-16 (height: 4rem)</div>
+                        <div class="bg-gray-200 w-16 h-8 rounded flex items-center justify-center text-xs">w-16 h-8</div>
+                        <div class="bg-gray-200 w-32 h-8 rounded flex items-center justify-center text-xs">w-32 h-8</div>
+                    </div>
+                </div>
+
+                <!-- 排版类 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">排版类 (Typography)</h3>
+                    <div class="space-y-3">
+                        <h1 class="text-4xl font-bold text-gray-900">text-4xl font-bold</h1>
+                        <h2 class="text-2xl font-semibold text-gray-800">text-2xl font-semibold</h2>
+                        <p class="text-lg text-gray-700">text-lg text-gray-700</p>
+                        <p class="text-base text-gray-600">text-base text-gray-600</p>
+                        <p class="text-sm text-gray-500">text-sm text-gray-500</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 练习区域 -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">练习区域</h2>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">尝试修改下面的元素样式</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 原始样式 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">原始样式：</h4>
+                        <div class="bg-gray-200 p-4 rounded">
+                            <p>这是一个普通的段落</p>
+                        </div>
+                    </div>
+
+                    <!-- 修改后的样式 -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-3">尝试添加这些类：</h4>
+                        <div class="bg-blue-500 text-white p-6 rounded-lg shadow-md">
+                            <p class="text-lg font-semibold">添加了 bg-blue-500 text-white p-6 rounded-lg shadow-md</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                    <h4 class="font-medium text-gray-900 mb-2">练习提示：</h4>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                        <li>• 尝试改变背景色：bg-red-500, bg-green-500, bg-purple-500</li>
+                        <li>• 尝试改变文字颜色：text-white, text-black, text-blue-600</li>
+                        <li>• 尝试改变内边距：p-2, p-4, p-8</li>
+                        <li>• 尝试改变圆角：rounded, rounded-lg, rounded-full</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下一步 -->
+        <section class="text-center">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">恭喜！你完成了第一课</h2>
+                <p class="text-lg mb-6">你已经了解了 Tailwind CSS 的基础概念和实用优先的理念</p>
+                <a href="../02-layout/01-container.html" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    继续下一课：布局基础 →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">Tailwind CSS 学习教程 - 从入门到精通</p>
+        </div>
+    </footer>
+</body>
+</html>
