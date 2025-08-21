@@ -2,13 +2,13 @@
 sidebar_position: 2
 ---
 
-# Translate your site
+# 翻译你的站点
 
-Let's translate `docs/intro.md` to French.
+让我们将 `docs/intro.md` 翻译成法语。
 
-## Configure i18n
+## 配置国际化
 
-Modify `docusaurus.config.js` to add support for the `fr` locale:
+修改 `docusaurus.config.js` 以添加对 `fr` 语言环境的支持：
 
 ```js title="docusaurus.config.js"
 export default {
@@ -19,9 +19,9 @@ export default {
 };
 ```
 
-## Translate a doc
+## 翻译文档
 
-Copy the `docs/intro.md` file to the `i18n/fr` folder:
+将 `docs/intro.md` 文件复制到 `i18n/fr` 文件夹：
 
 ```bash
 mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
@@ -29,29 +29,29 @@ mkdir -p i18n/fr/docusaurus-plugin-content-docs/current/
 cp docs/intro.md i18n/fr/docusaurus-plugin-content-docs/current/intro.md
 ```
 
-Translate `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` in French.
+将 `i18n/fr/docusaurus-plugin-content-docs/current/intro.md` 翻译成法语。
 
-## Start your localized site
+## 启动本地化站点
 
-Start your site on the French locale:
+在法语语言环境下启动你的站点：
 
 ```bash
 npm run start -- --locale fr
 ```
 
-Your localized site is accessible at [http://localhost:3000/fr/](http://localhost:3000/fr/) and the `Getting Started` page is translated.
+你的本地化站点可以在 [http://localhost:3000/fr/](http://localhost:3000/fr/) 访问，`开始使用` 页面已翻译。
 
 :::caution
 
-In development, you can only use one locale at a time.
+在开发中，你一次只能使用一种语言环境。
 
 :::
 
-## Add a Locale Dropdown
+## 添加语言下拉菜单
 
-To navigate seamlessly across languages, add a locale dropdown.
+为了在语言之间无缝导航，添加语言下拉菜单。
 
-Modify the `docusaurus.config.js` file:
+修改 `docusaurus.config.js` 文件：
 
 ```js title="docusaurus.config.js"
 export default {
@@ -69,19 +69,19 @@ export default {
 };
 ```
 
-The locale dropdown now appears in your navbar:
+语言下拉菜单现在出现在你的导航栏中：
 
-![Locale Dropdown](./img/localeDropdown.png)
+![语言下拉菜单](./img/localeDropdown.png)
 
-## Build your localized site
+## 构建本地化站点
 
-Build your site for a specific locale:
+为特定语言环境构建你的站点：
 
 ```bash
 npm run build -- --locale fr
 ```
 
-Or build your site to include all the locales at once:
+或者构建你的站点以一次性包含所有语言环境：
 
 ```bash
 npm run build

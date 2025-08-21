@@ -2,48 +2,48 @@
 sidebar_position: 4
 ---
 
-# Markdown Features
+# Markdown 功能
 
-Docusaurus supports **[Markdown](https://daringfireball.net/projects/markdown/syntax)** and a few **additional features**.
+Docusaurus 支持 **[Markdown](https://daringfireball.net/projects/markdown/syntax)** 和一些 **附加功能**。
 
 ## Front Matter
 
-Markdown documents have metadata at the top called [Front Matter](https://jekyllrb.com/docs/front-matter/):
+Markdown 文档在顶部有称为 [Front Matter](https://jekyllrb.com/docs/front-matter/) 的元数据：
 
 ```text title="my-doc.md"
 // highlight-start
 ---
 id: my-doc-id
-title: My document title
-description: My document description
+title: 我的文档标题
+description: 我的文档描述
 slug: /my-custom-url
 ---
 // highlight-end
 
-## Markdown heading
+## Markdown 标题
 
-Markdown text with [links](./hello.md)
+带有 [链接](./hello.md) 的 Markdown 文本
 ```
 
-## Links
+## 链接
 
-Regular Markdown links are supported, using url paths or relative file paths.
+支持常规的 Markdown 链接，可以使用 URL 路径或相对文件路径。
 
 ```md
-Let's see how to [Create a page](/create-a-page).
+让我们看看如何 [创建页面](/create-a-page)。
 ```
 
 ```md
-Let's see how to [Create a page](./create-a-page.md).
+让我们看看如何 [创建页面](./create-a-page.md)。
 ```
 
-**Result:** Let's see how to [Create a page](./create-a-page.md).
+**结果：** 让我们看看如何 [创建页面](./create-a-page.md)。
 
-## Images
+## 图片
 
-Regular Markdown images are supported.
+支持常规的 Markdown 图片。
 
-You can use absolute paths to reference images in the static directory (`static/img/docusaurus.png`):
+你可以使用绝对路径来引用静态目录中的图片（`static/img/docusaurus.png`）：
 
 ```md
 ![Docusaurus logo](/img/docusaurus.png)
@@ -51,63 +51,63 @@ You can use absolute paths to reference images in the static directory (`static/
 
 ![Docusaurus logo](/img/docusaurus.png)
 
-You can reference images relative to the current file as well. This is particularly useful to colocate images close to the Markdown files using them:
+你也可以相对于当前文件引用图片。这对于将图片与使用它们的 Markdown 文件放在一起特别有用：
 
 ```md
 ![Docusaurus logo](./img/docusaurus.png)
 ```
 
-## Code Blocks
+## 代码块
 
-Markdown code blocks are supported with Syntax highlighting.
+支持带有语法高亮的 Markdown 代码块。
 
 ````md
 ```jsx title="src/components/HelloDocusaurus.js"
 function HelloDocusaurus() {
-  return <h1>Hello, Docusaurus!</h1>;
+  return <h1>你好，Docusaurus！</h1>;
 }
 ```
 ````
 
 ```jsx title="src/components/HelloDocusaurus.js"
 function HelloDocusaurus() {
-  return <h1>Hello, Docusaurus!</h1>;
+  return <h1>你好，Docusaurus！</h1>;
 }
 ```
 
-## Admonitions
+## 提示框
 
-Docusaurus has a special syntax to create admonitions and callouts:
+Docusaurus 有特殊的语法来创建提示框和警告：
 
 ```md
-:::tip My tip
+:::tip 我的提示
 
-Use this awesome feature option
+使用这个很棒的功能选项
 
 :::
 
-:::danger Take care
+:::danger 小心
 
-This action is dangerous
+这个操作很危险
 
 :::
 ```
 
-:::tip My tip
+:::tip 我的提示
 
-Use this awesome feature option
-
-:::
-
-:::danger Take care
-
-This action is dangerous
+使用这个很棒的功能选项
 
 :::
 
-## MDX and React Components
+:::danger 小心
 
-[MDX](https://mdxjs.com/) can make your documentation more **interactive** and allows using any **React components inside Markdown**:
+这个操作很危险
+
+:::
+
+## MDX 和 React 组件
+
+[MDX](https://mdxjs.com/) 可以让你的文档更加 **交互式**，并允许在 Markdown 中使用任何 **React 组件**：
 
 ```jsx
 export const Highlight = ({children, color}) => (
@@ -120,15 +120,15 @@ export const Highlight = ({children, color}) => (
       cursor: 'pointer',
     }}
     onClick={() => {
-      alert(`You clicked the color ${color} with label ${children}`)
+      alert(`你点击了颜色 ${color}，标签是 ${children}`)
     }}>
     {children}
   </span>
 );
 
-This is <Highlight color="#25c2a0">Docusaurus green</Highlight> !
+这是 <Highlight color="#25c2a0">Docusaurus 绿色</Highlight> ！
 
-This is <Highlight color="#1877F2">Facebook blue</Highlight> !
+这是 <Highlight color="#1877F2">Facebook 蓝色</Highlight> ！
 ```
 
 export const Highlight = ({children, color}) => (
@@ -141,12 +141,12 @@ export const Highlight = ({children, color}) => (
       cursor: 'pointer',
     }}
     onClick={() => {
-      alert(`You clicked the color ${color} with label ${children}`);
+      alert(`你点击了颜色 ${color}，标签是 ${children}`);
     }}>
     {children}
   </span>
 );
 
-This is <Highlight color="#25c2a0">Docusaurus green</Highlight> !
+这是 <Highlight color="#25c2a0">Docusaurus 绿色</Highlight> ！
 
-This is <Highlight color="#1877F2">Facebook blue</Highlight> !
+这是 <Highlight color="#1877F2">Facebook 蓝色</Highlight> ！

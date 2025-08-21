@@ -1,7 +1,7 @@
 ---
-sidebar_label: 'Hi!'
-sidebar_position: 3
+sidebar_label: '你好！'
+sidebar_position: 4
 ---
-# Hello
+# 你好
 
-This is my **first Docusaurus document**!
+这是我的 **第一份 Docusaurus 文档**！

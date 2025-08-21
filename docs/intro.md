@@ -2,46 +2,46 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# 教程介绍
 
-Let's discover **Docusaurus in less than 5 minutes**.
+让我们在 **5分钟内** 了解 **Docusaurus**。
 
-## Getting Started
+## 开始使用
 
-Get started by **creating a new site**.
+通过 **创建新站点** 开始使用。
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+或者立即使用 **[docusaurus.new](https://docusaurus.new)** **体验 Docusaurus**。
 
-### What you'll need
+### 你需要什么
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- [Node.js](https://nodejs.org/en/download/) 18.0 或更高版本：
+  - 安装 Node.js 时，建议勾选所有与依赖项相关的复选框。
 
-## Generate a new site
+## 生成新站点
 
-Generate a new Docusaurus site using the **classic template**.
+使用 **经典模板** 生成新的 Docusaurus 站点。
 
-The classic template will automatically be added to your project after you run the command:
+运行命令后，经典模板会自动添加到你的项目中：
 
 ```bash
 npm init docusaurus@latest my-website classic
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+你可以在命令提示符、Powershell、终端或代码编辑器的任何集成终端中输入此命令。
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+该命令还会安装运行 Docusaurus 所需的所有必要依赖项。
 
-## Start your site
+## 启动你的站点
 
-Run the development server:
+运行开发服务器：
 
 ```bash
 cd my-website
 npm run start
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+`cd` 命令会更改你正在使用的目录。为了使用新创建的 Docusaurus 站点，你需要在终端中导航到该目录。
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+`npm run start` 命令在本地构建你的网站并通过开发服务器提供服务，你可以在 http://localhost:3000/ 查看。
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+打开 `docs/intro.md`（本页）并编辑一些行：站点会 **自动重新加载** 并显示你的更改。

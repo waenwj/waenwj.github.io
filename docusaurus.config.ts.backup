@@ -85,7 +85,7 @@ const config: Config = {
           position: 'left',
           label: 'Docusaurus入门教程',
         },
-        {href: '/tailwindcss/index.html', label: 'Tailwind CSS教程', position: 'left'},
+        {type: 'dropdown', label: '教程', position: 'left', items: [{label: 'Docusaurus入门教程', to: '/docs/intro'}, {label: 'Tailwind CSS入门教程', href: '/tailwindcss/index.html'}]},
         {to: '/blog', label: '博客', position: 'left'},
         {
           href: 'https://github.com/waenwj/waenwj.github.io',
@@ -103,10 +103,6 @@ const config: Config = {
             {
               label: 'Docusaurus入门教程',
               to: '/docs/intro',
-            },
-            {
-              label: 'Tailwind CSS教程',
-              href: '/tailwindcss/index.html',
             },
           ],
         },

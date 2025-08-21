@@ -2,33 +2,33 @@
 sidebar_position: 3
 ---
 
-# Create a Blog Post
+# 创建博客文章
 
-Docusaurus creates a **page for each blog post**, but also a **blog index page**, a **tag system**, an **RSS** feed...
+Docusaurus 为每篇博客文章创建 **页面**，还提供 **博客索引页面**、**标签系统**、**RSS** 订阅...
 
-## Create your first Post
+## 创建你的第一篇文章
 
-Create a file at `blog/2021-02-28-greetings.md`:
+在 `blog/2021-02-28-greetings.md` 创建文件：
 
 ```md title="blog/2021-02-28-greetings.md"
 ---
 slug: greetings
-title: Greetings!
+title: 问候！
 authors:
   - name: Joel Marcey
-    title: Co-creator of Docusaurus 1
+    title: Docusaurus 1 联合创始人
     url: https://github.com/JoelMarcey
     image_url: https://github.com/JoelMarcey.png
   - name: Sébastien Lorber
-    title: Docusaurus maintainer
+    title: Docusaurus 维护者
     url: https://sebastienlorber.com
     image_url: https://github.com/slorber.png
 tags: [greetings]
 ---
 
-Congratulations, you have made your first post!
+恭喜，你已经发布了第一篇文章！
 
-Feel free to play around and edit this post as much as you like.
+请随意修改和编辑这篇文章。
 ```
 
-A new blog post is now available at [http://localhost:3000/blog/greetings](http://localhost:3000/blog/greetings).
+新博客文章现在可以在 [http://localhost:3000/blog/greetings](http://localhost:3000/blog/greetings) 访问。
