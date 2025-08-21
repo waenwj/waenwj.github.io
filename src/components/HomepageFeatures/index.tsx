@@ -1,52 +1,48 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
-type FeatureItem = {
+type BookItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  link: string;
   description: ReactNode;
+  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  isExternal?: boolean;
 };
 
-const FeatureList: FeatureItem[] = [
+const BookList: BookItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Docusaurus入门教程',
+    link: '/docs/intro',
+    description: (
+      <>
+        从零开始学习 Docusaurus，掌握静态网站生成器的核心概念和实用技巧。
+        包含环境搭建、基础配置、内容管理等完整教程。
+      </>
+    ),
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Tailwind CSS教程',
+    link: '/tailwindcss/index.html',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        深入学习 Tailwind CSS 实用优先的 CSS 框架，掌握响应式设计和现代 UI 开发技巧。
+        从基础到高级，包含实战项目案例。
       </>
     ),
-  },
-  {
-    title: 'Powered by React',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    isExternal: true,
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
-  return (
-    <div className={clsx('col col--4')}>
+function Book({title, link, description, Svg, isExternal}: BookItem) {
+  const BookContent = () => (
+    <div>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <Svg className={styles.bookSvg} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
@@ -54,15 +50,29 @@ function Feature({title, Svg, description}: FeatureItem) {
       </div>
     </div>
   );
+
+  if (isExternal) {
+    return (
+      <a href={link} target="_blank" rel="noopener noreferrer" className={clsx('col col--6', styles.bookLink)}>
+        <BookContent />
+      </a>
+    );
+  }
+
+  return (
+    <Link to={link} className={clsx('col col--6', styles.bookLink)}>
+      <BookContent />
+    </Link>
+  );
 }
 
-export default function HomepageFeatures(): ReactNode {
+export default function HomepageBooks(): ReactNode {
   return (
-    <section className={styles.features}>
+    <section className={styles.books}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {BookList.map((props, idx) => (
+            <Book key={idx} {...props} />
           ))}
         </div>
       </div>

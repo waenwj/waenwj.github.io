@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: '王习远爸爸的网站',
-  tagline: 'Dinosaurs are cool',
+  tagline: '虽然有了AI，基础知识还是很有必要掌握的。',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -85,7 +85,7 @@ const config: Config = {
           position: 'left',
           label: 'Docusaurus入门教程',
         },
-        {href: '/tailwindcss/index.html', label: 'Tailwind CSS教程', position: 'left'},
+        {href: '/tailwindcss/index.html', label: 'Tailwind CSS教程', position: 'left', target: '_blank'},
         {to: '/blog', label: '博客', position: 'left'},
         {
           href: 'https://github.com/waenwj/waenwj.github.io',
@@ -107,26 +107,27 @@ const config: Config = {
             {
               label: 'Tailwind CSS教程',
               href: '/tailwindcss/index.html',
+              target: '_blank',
             },
           ],
         },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
+        // {
+        //   title: 'Community',
+        //   items: [
+        //     {
+        //       label: 'Stack Overflow',
+        //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+        //     },
+        //     {
+        //       label: 'Discord',
+        //       href: 'https://discordapp.com/invite/docusaurus',
+        //     },
+        //     {
+        //       label: 'X',
+        //       href: 'https://x.com/docusaurus',
+        //     },
+        //   ],
+        // },
         {
           title: 'More',
           items: [
@@ -141,7 +142,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} `,
+      copyright: `Copyright © ${new Date().getFullYear()} 王习远。保留所有权利。`,
     },
     prism: {
       theme: prismThemes.github,

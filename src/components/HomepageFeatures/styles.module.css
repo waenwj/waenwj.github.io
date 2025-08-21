@@ -1,3 +1,32 @@
+.books {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.bookSvg {
+  height: 200px;
+  width: 200px;
+}
+
+.bookLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.bookLink:hover {
+  transform: translateY(-4px);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 保持向后兼容 */
 .features {
   display: flex;
   align-items: center;
