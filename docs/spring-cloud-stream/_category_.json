@@ -1,0 +1,9 @@
+{
+  "label": "Spring Cloud Stream 教程",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "学习如何使用 Spring Cloud Stream 构建事件驱动的微服务应用。"
+  }
+}
+
